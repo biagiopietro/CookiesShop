@@ -15,19 +15,19 @@ class CreateCookieRecipesTable extends Migration
     {
         Schema::create('cookie_recipes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cookie_id')->unsigned()->nullable(false);
-            $table->integer('ingredient_id')->unsigned()->nullable(false);
+            $table->bigInteger('cookie_id')->unsigned()->nullable(false);
+            $table->bigInteger('ingredient_id')->unsigned()->nullable(false);
             $table->boolean('is_deleted')->default(false);
 
             $table->foreign('cookie_id')
                 ->references('id')
                 ->on('cookies')
-                ->onDelete('CASCADE');
+                ->onDelete('cascade');
 
             $table->foreign('ingredient_id')
                 ->references('id')
                 ->on('ingredients')
-                ->onDelete('CASCADE');
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
