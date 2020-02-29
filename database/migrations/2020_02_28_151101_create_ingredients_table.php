@@ -15,7 +15,7 @@ class CreateIngredientsTable extends Migration
     {
         Schema::create('ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name',200)->nullable(false);
+            $table->string('name',200)->nullable(false)->unique();
             $table->boolean('is_veggie')->default(false);
             $table->boolean('is_vegan')->default(false);
             $table->boolean('is_deleted')->default(false);

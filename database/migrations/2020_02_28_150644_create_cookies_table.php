@@ -15,7 +15,7 @@ class CreateCookiesTable extends Migration
     {
         Schema::create('cookies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name', 150)->nullable(false);
+            $table->string('name', 150)->nullable(false)->unique();
             $table->double('weight')->default(0);
             $table->double('calories')->default(0);
             $table->boolean('is_deleted')->default(false);
