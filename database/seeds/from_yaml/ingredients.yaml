@@ -1,0 +1,55 @@
+ingredients:
+  - name: butter
+    is_veggie: false
+    is_vegan: false
+  - name: sugar
+    is_veggie: false
+    is_vegan: false
+  - name: milk
+    is_veggie: false
+    is_vegan: false
+  - name: egg
+    is_veggie: false
+    is_vegan: false
+  - name: baking soda
+    is_veggie: false
+    is_vegan: false
+  - name: salt
+    is_veggie: false
+    is_vegan: false
+  - name: vanilla
+    is_veggie: false
+    is_vegan: false
+  - name: chocolate
+    is_veggie: false
+    is_vegan: false
+  - name: flour
+    is_veggie: false
+    is_vegan: false
+  - name: banana
+    is_veggie: false
+    is_vegan: false
+  - name: strawberry
+    is_veggie: false
+    is_vegan: false
+  - name: speak
+    is_veggie: false
+    is_vegan: false
+  - name: bacon
+    is_veggie: false
+    is_vegan: false
+  - name: caraway seeds
+    is_veggie: false
+    is_vegan: false
+  - name: onion
+    is_veggie: false
+    is_vegan: false
+  - name: cumin
+    is_veggie: false
+    is_vegan: false
+  - name: candied fruit
+    is_veggie: false
+    is_vegan: false
+  - name: cinnamon
+    is_veggie: false
+    is_vegan: false
