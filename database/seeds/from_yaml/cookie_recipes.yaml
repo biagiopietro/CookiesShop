@@ -1,0 +1,344 @@
+cookie_recipes:
+  - cookie_id: 1
+    ingredient_id: 1
+  - cookie_id: 1
+    ingredient_id: 3
+  - cookie_id: 1
+    ingredient_id: 4
+  - cookie_id: 1
+    ingredient_id: 9
+  - cookie_id: 1
+    ingredient_id: 6
+  - cookie_id: 1
+    ingredient_id: 18
+#
+  - cookie_id: 2
+    ingredient_id: 9
+  - cookie_id: 2
+    ingredient_id: 6
+  - cookie_id: 2
+    ingredient_id: 5
+  - cookie_id: 2
+    ingredient_id: 2
+  - cookie_id: 2
+    ingredient_id: 4
+  - cookie_id: 2
+    ingredient_id: 3
+  - cookie_id: 2
+    ingredient_id: 7
+  - cookie_id: 2
+    ingredient_id: 8
+#
+  - cookie_id: 3
+    ingredient_id: 19
+  - cookie_id: 3
+    ingredient_id: 4
+  - cookie_id: 3
+    ingredient_id: 9
+  - cookie_id: 3
+    ingredient_id: 5
+  - cookie_id: 3
+    ingredient_id: 6
+  - cookie_id: 3
+    ingredient_id: 18
+  - cookie_id: 3
+    ingredient_id: 20
+  - cookie_id: 3
+    ingredient_id: 1
+#
+  - cookie_id: 4
+    ingredient_id: 1
+  - cookie_id: 4
+    ingredient_id: 2
+  - cookie_id: 4
+    ingredient_id: 21
+  - cookie_id: 4
+    ingredient_id: 9
+#
+  - cookie_id: 5
+    ingredient_id: 1
+  - cookie_id: 5
+    ingredient_id: 2
+  - cookie_id: 5
+    ingredient_id: 22
+  - cookie_id: 5
+    ingredient_id: 6
+  - cookie_id: 5
+    ingredient_id: 5
+  - cookie_id: 5
+    ingredient_id: 4
+  - cookie_id: 5
+    ingredient_id: 9
+#
+  - cookie_id: 6
+    ingredient_id: 9
+  - cookie_id: 6
+    ingredient_id: 2
+  - cookie_id: 6
+    ingredient_id: 20
+  - cookie_id: 6
+    ingredient_id: 5
+  - cookie_id: 6
+    ingredient_id: 18
+  - cookie_id: 6
+    ingredient_id: 6
+  - cookie_id: 6
+    ingredient_id: 19
+  - cookie_id: 6
+    ingredient_id: 7
+#
+  - cookie_id: 7
+    ingredient_id: 1
+  - cookie_id: 7
+    ingredient_id: 2
+  - cookie_id: 7
+    ingredient_id: 4
+  - cookie_id: 7
+    ingredient_id: 11
+  - cookie_id: 7
+    ingredient_id: 7
+#
+  - cookie_id: 8
+    ingredient_id: 19
+  - cookie_id: 8
+    ingredient_id: 2
+  - cookie_id: 8
+    ingredient_id: 9
+  - cookie_id: 8
+    ingredient_id: 4
+  - cookie_id: 8
+    ingredient_id: 23
+#
+  - cookie_id: 10
+    ingredient_id: 9
+  - cookie_id: 10
+    ingredient_id: 6
+  - cookie_id: 10
+    ingredient_id: 18
+  - cookie_id: 10
+    ingredient_id: 1
+  - cookie_id: 10
+    ingredient_id: 2
+  - cookie_id: 10
+    ingredient_id: 4
+  - cookie_id: 10
+    ingredient_id: 24
+#
+  - cookie_id: 11
+    ingredient_id: 1
+  - cookie_id: 11
+    ingredient_id: 4
+  - cookie_id: 11
+    ingredient_id: 9
+  - cookie_id: 11
+    ingredient_id: 2
+  - cookie_id: 11
+    ingredient_id: 7
+#
+  - cookie_id: 12
+    ingredient_id: 1
+  - cookie_id: 12
+    ingredient_id: 2
+  - cookie_id: 12
+    ingredient_id: 7
+  - cookie_id: 12
+    ingredient_id: 9
+  - cookie_id: 12
+    ingredient_id: 25
+  - cookie_id: 12
+    ingredient_id: 26
+#
+  - cookie_id: 13
+    ingredient_id: 2
+  - cookie_id: 13
+    ingredient_id: 28
+  - cookie_id: 13
+    ingredient_id: 4
+  - cookie_id: 13
+    ingredient_id: 27
+  - cookie_id: 13
+    ingredient_id: 9
+  - cookie_id: 13
+    ingredient_id: 6
+  - cookie_id: 13
+    ingredient_id: 5
+#
+  - cookie_id: 14
+    ingredient_id: 8
+  - cookie_id: 14
+    ingredient_id: 2
+  - cookie_id: 14
+    ingredient_id: 4
+  - cookie_id: 14
+    ingredient_id: 19
+  - cookie_id: 14
+    ingredient_id: 7
+  - cookie_id: 14
+    ingredient_id: 9
+#
+  - cookie_id: 15
+    ingredient_id: 29
+  - cookie_id: 15
+    ingredient_id: 2
+  - cookie_id: 15
+    ingredient_id: 6
+  - cookie_id: 15
+    ingredient_id: 30
+  - cookie_id: 15
+    ingredient_id: 31
+  - cookie_id: 15
+    ingredient_id: 25
+  - cookie_id: 15
+    ingredient_id: 9
+  - cookie_id: 15
+    ingredient_id: 5
+  - cookie_id: 15
+    ingredient_id: 1
+  - cookie_id: 15
+    ingredient_id: 4
+  - cookie_id: 15
+    ingredient_id: 7
+#
+  - cookie_id: 16
+    ingredient_id: 32
+  - cookie_id: 16
+    ingredient_id: 1
+  - cookie_id: 16
+    ingredient_id: 4
+  - cookie_id: 16
+    ingredient_id: 7
+  - cookie_id: 16
+    ingredient_id: 9
+  - cookie_id: 16
+    ingredient_id: 6
+#
+  - cookie_id: 17
+    ingredient_id: 3
+  - cookie_id: 17
+    ingredient_id: 7
+  - cookie_id: 17
+    ingredient_id: 6
+  - cookie_id: 17
+    ingredient_id: 4
+  - cookie_id: 17
+    ingredient_id: 8
+#
+  - cookie_id: 18
+    ingredient_id: 4
+  - cookie_id: 18
+    ingredient_id: 1
+  - cookie_id: 18
+    ingredient_id: 2
+  - cookie_id: 18
+    ingredient_id: 7
+  - cookie_id: 18
+    ingredient_id: 9
+#
+  - cookie_id: 19
+    ingredient_id: 9
+  - cookie_id: 19
+    ingredient_id: 1
+  - cookie_id: 19
+    ingredient_id: 8
+  - cookie_id: 19
+    ingredient_id: 9
+  - cookie_id: 19
+    ingredient_id: 2
+  - cookie_id: 19
+    ingredient_id: 4
+  - cookie_id: 19
+    ingredient_id: 7
+#
+  - cookie_id: 20
+    ingredient_id: 1
+  - cookie_id: 20
+    ingredient_id: 4
+  - cookie_id: 20
+    ingredient_id: 7
+  - cookie_id: 20
+    ingredient_id: 2
+  - cookie_id: 20
+    ingredient_id: 33
+  - cookie_id: 20
+    ingredient_id: 9
+  - cookie_id: 20
+    ingredient_id: 6
+  - cookie_id: 20
+    ingredient_id: 5
+#
+  - cookie_id: 21
+    ingredient_id: 1
+  - cookie_id: 21
+    ingredient_id: 2
+  - cookie_id: 21
+    ingredient_id: 4
+  - cookie_id: 21
+    ingredient_id: 9
+  - cookie_id: 21
+    ingredient_id: 5
+  - cookie_id: 21
+    ingredient_id: 20
+  - cookie_id: 21
+    ingredient_id: 18
+  - cookie_id: 21
+    ingredient_id: 6
+  - cookie_id: 21
+    ingredient_id: 34
+#
+  - cookie_id: 22
+    ingredient_id: 1
+  - cookie_id: 22
+    ingredient_id: 24
+  - cookie_id: 22
+    ingredient_id: 9
+  - cookie_id: 22
+    ingredient_id: 4
+  - cookie_id: 22
+    ingredient_id: 7
+#
+  - cookie_id: 23
+    ingredient_id: 2
+  - cookie_id: 23
+    ingredient_id: 35
+  - cookie_id: 23
+    ingredient_id: 8
+  - cookie_id: 23
+    ingredient_id: 36
+  - cookie_id: 23
+    ingredient_id: 4
+  - cookie_id: 23
+    ingredient_id: 30
+  - cookie_id: 23
+    ingredient_id: 9
+  - cookie_id: 23
+    ingredient_id: 18
+  - cookie_id: 23
+    ingredient_id: 5
+#
+  - cookie_id: 24
+    ingredient_id: 4
+  - cookie_id: 24
+    ingredient_id: 2
+  - cookie_id: 24
+    ingredient_id: 6
+  - cookie_id: 24
+    ingredient_id: 1
+  - cookie_id: 24
+    ingredient_id: 7
+#
+  - cookie_id: 25
+    ingredient_id: 9
+  - cookie_id: 25
+    ingredient_id: 6
+  - cookie_id: 25
+    ingredient_id: 5
+  - cookie_id: 25
+    ingredient_id: 2
+  - cookie_id: 25
+    ingredient_id: 1
+  - cookie_id: 25
+    ingredient_id: 4
+  - cookie_id: 25
+    ingredient_id: 37
+  - cookie_id: 25
+    ingredient_id: 38
