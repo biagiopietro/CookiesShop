@@ -20,23 +20,29 @@ class CookiesTableSeeder extends Seeder
     public function run()
     {
         $cookiesYaml = $this->loadCookiesYaml();
-        if ($this->isFileYamlIsNotEmpty($cookiesYaml)) {
-            if ($this->checkIfFileYamlStartsCorrectly($cookiesYaml)) {
-                $ingredients = $cookiesYaml[COOKIES];
+        if ($this->isFileYamlIsNotEmpty($cookiesYaml))
+        {
+            if ($this->checkIfFileYamlStartsCorrectly($cookiesYaml))
+            {
+                $cookies = $cookiesYaml[COOKIES];
                 Log::info("Start seeding cookies");
-                $countLoadedCookies = $this->startSeedingCookies($ingredients);
+                $countLoadedCookies = $this->startSeedingCookies($cookies);
                 $this->printCountLoadedCookies($countLoadedCookies);
-            } else {
+            }
+            else
+            {
                 Log::error(sprintf("Missing '%s' attribute in yaml", COOKIES));
             }
-        } else {
+        }
+        else
+        {
             Log::error(sprintf("The file '%s' is empty", COOKIES_FILE_YAML));
         }
     }
 
-    private function isFileYamlIsNotEmpty($ingredientsYaml)
+    private function isFileYamlIsNotEmpty($cookiesYaml)
     {
-        return ($ingredientsYaml != null && count($ingredientsYaml) > 0);
+        return ($cookiesYaml != null && count($cookiesYaml) > 0);
     }
 
     private function checkIfFileYamlStartsCorrectly($cookiesYaml)
@@ -48,12 +54,15 @@ class CookiesTableSeeder extends Seeder
     {
         $i = 1;
         $countLoadedCookies = 0;
-        foreach ($cookies as $cookie) {
+        foreach ($cookies as $cookie)
+        {
             if ($this->checkIfCookieHasAllFields($cookie))
             {
                 $this->insertCookie($cookie);
                 $countLoadedCookies ++;
-            } else {
+            }
+            else
+            {
                 Log::warning(sprintf("Missing some fields at index %d",$i));
             }
             $i++;
