@@ -18,25 +18,25 @@ cookies:
   - name: Peanut Butter
     weight: 13.6
     calories: 252
-  - name: Whoopie Pies
+  - name: Gingerbread Whoopie Pies
     weight: 17.5
     calories: 423
-  - name: Sugar
+  - name: Chewy Straberry Sugar
     weight: 14
     calories: 86
   - name: Biscotti
     weight: 7.8
     calories: 138
-  - name: Butter
+  - name: Butter Snow Flakes
     weight: 6.1
     calories: 105
   - name: Spritz
     weight: 8.4
     calories: 144
-  - name: Snowball
+  - name: Candy Cane Snowball
     weight: 8.7
     calories: 127
-  - name: Drop
+  - name: Mincemeat II
     weight: 12.7
     calories: 315
   - name: Zebra
@@ -45,9 +45,6 @@ cookies:
   - name: Orange Date Pinwheel
     weight: 4.3
     calories: 114
-  - name: Mincemeat II
-    weight: 12.7
-    calories: 315
   - name: Benne Wafers
     weight: 6
     calories: 106
@@ -78,6 +75,3 @@ cookies:
   - name: White Chocolate Macadamia Cranberry Dreams
     weight: 10.2
     calories: 202
-  - name: Macadamia Raspberry White Chocolate Cookies
-    weight: 11.9
-    calories: 205

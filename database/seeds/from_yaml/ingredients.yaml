@@ -53,3 +53,63 @@ ingredients:
   - name: cinnamon
     is_veggie: false
     is_vegan: false
+  - name: vegetable oil
+    is_veggie: false
+    is_vegan: false
+  - name: ginger
+    is_veggie: false
+    is_vegan: false
+  - name: cornstarch
+    is_veggie: false
+    is_vegan: false
+  - name: peanut butter
+    is_veggie: false
+    is_vegan: false
+  - name: anise
+    is_veggie: false
+    is_vegan: false
+  - name: cream cheese
+    is_veggie: false
+    is_vegan: false
+  - name: pecans
+    is_veggie: false
+    is_vegan: false
+  - name: peppermint
+    is_veggie: false
+    is_vegan: false
+  - name: mincemeat
+    is_veggie: false
+    is_vegan: false
+  - name: shortening
+    is_veggie: false
+    is_vegan: false
+  - name: dates
+    is_veggie: false
+    is_vegan: false
+  - name: orange juice
+    is_veggie: false
+    is_vegan: false
+  - name: orange zest
+    is_veggie: false
+    is_vegan: false
+  - name: sesame seeds
+    is_veggie: false
+    is_vegan: false
+  - name: coconut
+    is_veggie: false
+    is_vegan: false
+  - name: nutmeg
+    is_veggie: false
+    is_vegan: false
+  - name: honey
+    is_veggie: false
+    is_vegan: false
+  - name: candied mixed fruit
+    is_veggie: false
+    is_vegan: false
+  - name: macadamia nuts
+    is_veggie: false
+    is_vegan: false
+  - name: cranberries
+    is_veggie: false
+    is_vegan: false
