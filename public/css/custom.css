@@ -1,0 +1,24 @@
+:root {
+    --color-primary: #ea9225
+}
+
+.alternate-color:nth-child(even) {
+    background: #eff2ea
+}
+
+.alternate-color:nth-child(odd) {
+    background: var(--color-primary);
+}
+
+.bg-orange {
+    background: var(--color-primary);
+}
+
+.hover\:bg-red-40:hover {
+    background-color: rgba(234, 0, 18, 0.41);
+}
+
+
+body {
+    font-family: "Varela Round", serif;
+}

@@ -11,4 +11,7 @@
 |
 */
 
-Route::get('/', 'CookieController@index');
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/cookies', 'CookieController@index');

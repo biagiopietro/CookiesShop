@@ -10,6 +10,5 @@
     @foreach ($cookies as $cookie)
         @include('row_cookies_table')
     @endforeach
-
     </tbody>
 </table>
