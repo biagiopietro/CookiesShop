@@ -1,5 +1,5 @@
 <div class="">
-    <table class="w-full table-auto border mb-4 mt-4">
+    <table class="w-full table-auto mb-4 mt-4">
         <thead>
         <tr>
             <th class="px-4 py-2 bg-red text-white">{{ __('cookies_table.name') }}</th>
