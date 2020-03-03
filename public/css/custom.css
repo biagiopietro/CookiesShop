@@ -9,6 +9,7 @@
 
 .alternate-color:nth-child(odd) {
     background: var(--color-primary);
+    color: white;
 }
 
 .bg-orange {
