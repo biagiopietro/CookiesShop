@@ -14,8 +14,9 @@
 use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('carousel');
 });
+
 Route::get('/cookies', 'CookieController@index');
 
 Route::get('/{locale}', function ($locale) {

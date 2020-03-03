@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Cookie;
 use Illuminate\Http\Request;
 
-class CookieController extends Controller
+class CarouselController extends Controller
 {
     //
     public function index()
     {
-        return view('cookies', ['cookies' => Cookie::all()]);
+        return view('carousel');
     }
 }

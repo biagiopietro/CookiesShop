@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Cookies Shop</title>
 
     <!-- Fonts -->
@@ -22,14 +23,9 @@
 </head>
 
 <body>
-<div class="flex flex-wrap">
-    {{--            @include('cookies_table')--}}
-    <div class="w-full">
-        <div id="app">
-            <carousel></carousel>
-        </div>
+    <div id="app">
+        @yield('content')
     </div>
-</div>
 </body>
 <footer class="w-full text-center border-t border-grey bg-orange p-4 pin-b">
     <p class="text-xs text-white">
