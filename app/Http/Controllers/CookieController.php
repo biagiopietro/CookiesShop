@@ -10,6 +10,6 @@ class CookieController extends Controller
     //
     public function index()
     {
-        return view('cookies', ['cookies' => Cookie::all()]);
+        return view('cookies', ['cookies' => Cookie::paginate(10)->onEachSide(2)]);
     }
 }

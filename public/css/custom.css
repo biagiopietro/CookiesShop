@@ -1,5 +1,6 @@
 :root {
-    --color-primary: #ea9225
+    --color-primary: #ea9225;
+    --color-nav-hover: rgba(234, 0, 18, 0.41)
 }
 
 .alternate-color:nth-child(even) {
@@ -14,8 +15,12 @@
     background: var(--color-primary);
 }
 
+.bg-red {
+    background-color: rgb(234, 3, 43)
+}
+
 .hover\:bg-red-40:hover {
-    background-color: rgba(234, 0, 18, 0.41);
+    background-color:  var(--color-nav-hover);
 }
 
 
