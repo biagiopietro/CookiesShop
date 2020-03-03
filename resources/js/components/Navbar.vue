@@ -19,7 +19,10 @@
             </div>
         </div>
         <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0 bg-orange">
-            <a href="/cookies" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">Cookies</a>
+            <a href="/cookies" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ cookies }}</a>
+            <a href="/ingredients" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ ingredients }}</a>
+            <a href="/en" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span class="flag-icon flag-icon-gb"></span></a>
+            <a href="/it" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span class="flag-icon flag-icon-it"></span></a>
 <!--            <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:text-white hover:border-white sm:mt-0 sm:ml-2">Trips</a>-->
 <!--            <a href="#" class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:text-white hover:border-white sm:mt-0 sm:ml-2">Messages</a>-->
         </nav>
@@ -28,11 +31,17 @@
 
 
 <script>
+
     export default {
+        props: {
+            cookies: String,
+            ingredients: String,
+        },
         data() {
             return {
                 isOpen: false,
             }
         }
     }
+
 </script>

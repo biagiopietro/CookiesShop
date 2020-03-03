@@ -6,6 +6,7 @@
 
 // require('./bootstrap');
 // require('./welcome');
+import 'flag-icon-css/css/flag-icon.css'
 
 window.Vue = require('vue');
 

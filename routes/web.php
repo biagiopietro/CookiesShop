@@ -11,7 +11,14 @@
 |
 */
 
+use Illuminate\Support\Facades\Session;
+
 Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/cookies', 'CookieController@index');
+
+Route::get('/{locale}', function ($locale) {
+    Session::put('locale',$locale);
+    return redirect()->back();
+});

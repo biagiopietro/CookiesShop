@@ -14,7 +14,10 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
 
     <div id="header">
-        <navbar></navbar>
+        <navbar
+            cookies="{{ __('navbar.cookies') }}"
+            ingredients="{{ __('navbar.ingredients') }}">
+        </navbar>
     </div>
 </head>
 
