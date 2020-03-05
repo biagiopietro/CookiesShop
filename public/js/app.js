@@ -207,6 +207,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -9756,6 +9770,7 @@ var render = function() {
       _c(
         "vue-tailwind-modal",
         {
+          class: "z-10",
           attrs: { showing: _vm.visible },
           on: {
             close: function($event) {
@@ -9948,7 +9963,7 @@ var render = function() {
                 return _c(
                   "tr",
                   {
-                    staticClass: "alternate-color hover:bg-gray",
+                    staticClass: "alternate-color hover:bg-gray z-10",
                     on: {
                       click: function($event) {
                         return _vm.showIngredients(cookie.id)
@@ -9956,14 +9971,71 @@ var render = function() {
                     }
                   },
                   [
-                    _c(
-                      "td",
-                      {
-                        staticClass: "px-4 py-2",
-                        attrs: { id: "cookie-name-" + cookie.id }
-                      },
-                      [_vm._v(_vm._s(cookie.name))]
-                    ),
+                    _c("td", { staticClass: "px-4 py-2" }, [
+                      _c(
+                        "span",
+                        { attrs: { id: "cookie-name-" + cookie.id } },
+                        [_vm._v(_vm._s(cookie.name))]
+                      ),
+                      _vm._v(" "),
+                      cookie.is_veggie
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "tooltip rounded-6 bg-green-900 w-6 h-6 z-0"
+                            },
+                            [
+                              _vm._v(
+                                "\n                        v\n                        "
+                              ),
+                              _c("span", { staticClass: "tooltiptext" }, [
+                                _vm._v(
+                                  _vm._s(_vm.$t("ingredients_table.is_veggie"))
+                                )
+                              ])
+                            ]
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      cookie.is_veggie && cookie.is_vegan
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "tooltip rounded-6 bg-cyan w-6 h-6 ml--2 z-0"
+                            },
+                            [
+                              _vm._v(
+                                "\n                        v\n                        "
+                              ),
+                              _c("span", { staticClass: "tooltiptext" }, [
+                                _vm._v(
+                                  _vm._s(_vm.$t("ingredients_table.is_vegan"))
+                                )
+                              ])
+                            ]
+                          )
+                        : cookie.is_vegan
+                        ? _c(
+                            "button",
+                            {
+                              staticClass:
+                                "tooltip rounded-6 bg-cyan w-6 h-6 z-0"
+                            },
+                            [
+                              _vm._v(
+                                "\n                        v\n                        "
+                              ),
+                              _c("span", { staticClass: "tooltiptext" }, [
+                                _vm._v(
+                                  _vm._s(_vm.$t("ingredients_table.is_vegan"))
+                                )
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center px-4 py-2" }, [
                       _vm._v(_vm._s(cookie.weight))
@@ -24644,7 +24716,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     "ingredients_table": {
       "name": "Name",
-      "is_veggie": "Vegetariano",
+      "is_veggie": "Vegetarian",
       "is_vegan": "Vegan"
     },
     "auth": {

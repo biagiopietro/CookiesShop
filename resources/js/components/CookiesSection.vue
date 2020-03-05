@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vue-tailwind-modal :showing="visible" @close="visible = false">
+        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-10'">
             <div class="bg-white w-auto">
                 <ul class="max-w-sm rounded overflow-hidden ">
                     <div class="px-6 pt-4">
@@ -53,8 +53,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="cookie in cookies.data" v-on:click="showIngredients(cookie.id)" class="alternate-color hover:bg-gray">
-                    <td :id="'cookie-name-' +cookie.id" class="px-4 py-2">{{ cookie.name }}</td>
+                <tr v-for="cookie in cookies.data" v-on:click="showIngredients(cookie.id)" class="alternate-color hover:bg-gray z-10">
+                    <td class="px-4 py-2">
+                        <span :id="'cookie-name-' +cookie.id" >{{ cookie.name }}</span>
+                        <button v-if="cookie.is_veggie" class="tooltip rounded-6 bg-green-900 w-6 h-6 z-0">
+                            v
+                            <span class="tooltiptext">{{ $t('ingredients_table.is_veggie')}}</span>
+                        </button>
+                        <button v-if="cookie.is_veggie && cookie.is_vegan" class="tooltip rounded-6 bg-cyan w-6 h-6 ml--2 z-0">
+                            v
+                            <span class="tooltiptext">{{ $t('ingredients_table.is_vegan')}}</span>
+                        </button>
+                        <button v-else-if="cookie.is_vegan" class="tooltip rounded-6 bg-cyan w-6 h-6 z-0">
+                            v
+                            <span class="tooltiptext">{{ $t('ingredients_table.is_vegan')}}</span>
+                        </button>
+                    </td>
                     <td class="text-center px-4 py-2">{{ cookie.weight }}</td>
                     <td class="text-center px-4 py-2">{{ cookie.calories }}</td>
                 </tr>
