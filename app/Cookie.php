@@ -17,12 +17,12 @@ class Cookie extends Model
 
     public function getDeletedIngredients()
     {
-        return $this->getAllIngredients()->where('is_deleted',true);
+        return $this->getAllIngredients()->where('ingredients.is_deleted',true);
     }
 
     public function getNotDeletedIngredients()
     {
-        return $this->getAllIngredients()->where('is_deleted',false);
+        return $this->getAllIngredients()->where('ingredients.is_deleted',false);
     }
 
     public function isDeleted()

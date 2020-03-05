@@ -1,8 +1,30 @@
 <template>
     <div>
         <vue-tailwind-modal :showing="visible" @close="visible = false">
-            <!-- Put your modal content here -->
-            <h1>Hello!!!</h1>
+            <div class="bg-white w-auto">
+                <ul class="max-w-sm rounded overflow-hidden ">
+                    <div class="px-6 pt-4">
+                        <div id="modal-title" class="font-bold text-xl mb-2 text-orange"></div>
+                        <div class="font-bold text-md mb-2">{{ $t('navbar.ingredients') }}</div>
+                    </div>
+                    <div v-if="ingredients.length !== 0">
+                        <ul class="px-6 py-4 sm:list-none md:list-none lg:list-none xl:list-none">
+                            <li>
+                                <span v-for="ingredient in ingredients" class="m-1 inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">{{ ingredient.name }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div v-else class="pb-4">
+                        <span class="opacity-25" >{{ $t('cookies_table.no_ingredients_available') }}</span>
+                    </div>
+                </ul>
+            </div>
+            <div class="flex justify-center">
+                <button type="button" v-on:click="visible = false" class="py-2 px-3 rounded bg-orange text-white">
+                    {{ $t('cookies_table.got_it') }}
+                </button>
+            </div>
+
 
         </vue-tailwind-modal>
         <div class="w-full">
@@ -31,14 +53,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="cookie in cookies.data" v-on:click="show" class="alternate-color hover:bg-gray">
-                    <td class="px-4 py-2">{{ cookie.name }}</td>
+                <tr v-for="cookie in cookies.data" v-on:click="showIngredients(cookie.id)" class="alternate-color hover:bg-gray">
+                    <td :id="'cookie-name-' +cookie.id" class="px-4 py-2">{{ cookie.name }}</td>
                     <td class="text-center px-4 py-2">{{ cookie.weight }}</td>
                     <td class="text-center px-4 py-2">{{ cookie.calories }}</td>
                 </tr>
                 </tbody>
             </table>
-            <!--            {{ pagination }}-->
             <pagination :data="cookies" @pagination-change-page="getCookies" :limit="limit"></pagination>
         </div>
     </div>
@@ -56,6 +77,7 @@
             return {
                 visible: false,
                 cookies: {},
+                ingredients: {},
                 limit: 4,
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
                 form: {
@@ -67,8 +89,27 @@
             this.getCookies();
         },
         methods: {
-            show: function () {
+            showIngredients: function (id) {
+
+                // Set the width of the dialog
+                // Show the dialog
                 this.visible = true;
+                let headers = {
+                    'Accept': 'application/json;charset=utf-8',
+                    'X-CSRF-TOKEN': this.csrf,
+                };
+
+
+                this.$http.get('/cookies/'+id+'/ingredients', {headers})
+                    .then(response => {
+                        return response.json();
+                    }).then(data => {
+                    document.getElementsByClassName('relative')[0].classList.remove("w-full");
+                    document.getElementsByClassName('relative')[0].classList.add("w-auto");
+                    var cookieName = document.getElementById("cookie-name-"+id).innerText;
+                    document.getElementById("modal-title").innerText = cookieName;
+                    this.ingredients = data;
+                });
             },
             getCookies(page) {
                 if (typeof page === 'undefined') {

@@ -186,6 +186,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -195,6 +216,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       visible: false,
       cookies: {},
+      ingredients: {},
       limit: 4,
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
       form: {
@@ -206,11 +228,30 @@ __webpack_require__.r(__webpack_exports__);
     this.getCookies();
   },
   methods: {
-    show: function show() {
+    showIngredients: function showIngredients(id) {
+      var _this = this;
+
+      // Set the width of the dialog
+      // Show the dialog
       this.visible = true;
+      var headers = {
+        'Accept': 'application/json;charset=utf-8',
+        'X-CSRF-TOKEN': this.csrf
+      };
+      this.$http.get('/cookies/' + id + '/ingredients', {
+        headers: headers
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        document.getElementsByClassName('relative')[0].classList.remove("w-full");
+        document.getElementsByClassName('relative')[0].classList.add("w-auto");
+        var cookieName = document.getElementById("cookie-name-" + id).innerText;
+        document.getElementById("modal-title").innerText = cookieName;
+        _this.ingredients = data;
+      });
     },
     getCookies: function getCookies(page) {
-      var _this = this;
+      var _this2 = this;
 
       if (typeof page === 'undefined') {
         page = 1;
@@ -225,11 +266,11 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (response) {
         return response.json();
       }).then(function (data) {
-        _this.cookies = data;
+        _this2.cookies = data;
       });
     },
     searchCookies: function searchCookies(search, page) {
-      var _this2 = this;
+      var _this3 = this;
 
       if (typeof page === 'undefined') {
         page = 1;
@@ -238,7 +279,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$http.get('/searchCookies?search=' + search + '&page=' + page).then(function (response) {
         return response.json();
       }).then(function (data) {
-        _this2.cookies = data;
+        _this3.cookies = data;
       });
     }
   }
@@ -9722,7 +9763,78 @@ var render = function() {
             }
           }
         },
-        [_c("h1", [_vm._v("Hello!!!")])]
+        [
+          _c("div", { staticClass: "bg-white w-auto" }, [
+            _c("ul", { staticClass: "max-w-sm rounded overflow-hidden " }, [
+              _c("div", { staticClass: "px-6 pt-4" }, [
+                _c("div", {
+                  staticClass: "font-bold text-xl mb-2 text-orange",
+                  attrs: { id: "modal-title" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "font-bold text-md mb-2" }, [
+                  _vm._v(_vm._s(_vm.$t("navbar.ingredients")))
+                ])
+              ]),
+              _vm._v(" "),
+              _vm.ingredients.length !== 0
+                ? _c("div", [
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "px-6 py-4 sm:list-none md:list-none lg:list-none xl:list-none"
+                      },
+                      [
+                        _c(
+                          "li",
+                          _vm._l(_vm.ingredients, function(ingredient) {
+                            return _c(
+                              "span",
+                              {
+                                staticClass:
+                                  "m-1 inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700"
+                              },
+                              [_vm._v(_vm._s(ingredient.name))]
+                            )
+                          }),
+                          0
+                        )
+                      ]
+                    )
+                  ])
+                : _c("div", { staticClass: "pb-4" }, [
+                    _c("span", { staticClass: "opacity-25" }, [
+                      _vm._v(
+                        _vm._s(_vm.$t("cookies_table.no_ingredients_available"))
+                      )
+                    ])
+                  ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex justify-center" }, [
+            _c(
+              "button",
+              {
+                staticClass: "py-2 px-3 rounded bg-orange text-white",
+                attrs: { type: "button" },
+                on: {
+                  click: function($event) {
+                    _vm.visible = false
+                  }
+                }
+              },
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.$t("cookies_table.got_it")) +
+                    "\n            "
+                )
+              ]
+            )
+          ])
+        ]
       ),
       _vm._v(" "),
       _c("div", { staticClass: "w-full" }, [
@@ -9837,12 +9949,21 @@ var render = function() {
                   "tr",
                   {
                     staticClass: "alternate-color hover:bg-gray",
-                    on: { click: _vm.show }
+                    on: {
+                      click: function($event) {
+                        return _vm.showIngredients(cookie.id)
+                      }
+                    }
                   },
                   [
-                    _c("td", { staticClass: "px-4 py-2" }, [
-                      _vm._v(_vm._s(cookie.name))
-                    ]),
+                    _c(
+                      "td",
+                      {
+                        staticClass: "px-4 py-2",
+                        attrs: { id: "cookie-name-" + cookie.id }
+                      },
+                      [_vm._v(_vm._s(cookie.name))]
+                    ),
                     _vm._v(" "),
                     _c("td", { staticClass: "text-center px-4 py-2" }, [
                       _vm._v(_vm._s(cookie.weight))
@@ -24517,7 +24638,14 @@ __webpack_require__.r(__webpack_exports__);
     "cookies_table": {
       "name": "Name",
       "weight": "Weight",
-      "calories": "Calories"
+      "calories": "Calories",
+      "no_ingredients_available": "No ingredients available,",
+      "got_it": "GOT IT!"
+    },
+    "ingredients_table": {
+      "name": "Name",
+      "is_veggie": "Vegetariano",
+      "is_vegan": "Vegan"
     },
     "auth": {
       "failed": "These credentials do not match our records.",
@@ -24546,7 +24674,14 @@ __webpack_require__.r(__webpack_exports__);
     "cookies_table": {
       "name": "Nome",
       "weight": "Peso",
-      "calories": "Calorie"
+      "calories": "Calorie",
+      "no_ingredients_available": "Ingredienti non disponibili,",
+      "got_it": "Ho capito"
+    },
+    "ingredients_table": {
+      "name": "Nome",
+      "is_veggie": "Vegetariano",
+      "is_vegan": "Vegano"
     },
     "cookies_form": {
       "search_cookies": "Cerca biscotti..."
