@@ -20,20 +20,20 @@ class CookieController extends Controller
 
     public function ingredients(Request $request, $id)
     {
-        $cookie_ingredients = Cookie::find($id)->getNotDeletedIngredients()->get();
-        return response()->json($cookie_ingredients);
+        $cookieIngredients = Cookie::find($id)->getNotDeletedIngredients()->get();
+        return response()->json($cookieIngredients);
     }
 
     private function search(Request $request)
     {
         if ($request->filled('search')) {
             $search = $request->search;
-            $filtered_cookies = Cookie::where('name', 'LIKE', '%' . $search . '%');
+            $filteredCookies = Cookie::where('name', 'LIKE', '%' . $search . '%');
         } else {
-            $filtered_cookies = Cookie::query();
+            $filteredCookies = Cookie::query();
 
         }
-        return $this->paginateCookies($filtered_cookies);
+        return $this->paginateCookies($filteredCookies);
     }
 
     private function paginateCookies($cookies)
