@@ -9,6 +9,8 @@ class Cookie extends Model
     //
     protected $table = 'cookies';
     protected $primaryKey = 'id';
+    protected $appends = ['is_veggie','is_vegan'];
+    protected $attributes = ['is_veggie','is_vegan'];
 
     public function getAllIngredients()
     {
@@ -25,7 +27,7 @@ class Cookie extends Model
         return $this->getAllIngredients()->where('ingredients.is_deleted',false);
     }
 
-    public function isVeggie()
+    public function getIsVeggieAttribute()
     {
         $cookieIngredients = $this->getAllIngredients()->get();
         $isVeggie = true;
@@ -45,7 +47,7 @@ class Cookie extends Model
         return $isVeggie;
     }
 
-    public function isVegan()
+    public function getIsVeganAttribute()
     {
         $cookieIngredients = $this->getAllIngredients()->get();
         $isVegan = true;
