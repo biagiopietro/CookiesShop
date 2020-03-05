@@ -115,7 +115,14 @@ export default {
         "cookies_table": {
             "name": "Name",
             "weight": "Weight",
-            "calories": "Calories"
+            "calories": "Calories",
+            "no_ingredients_available": "No ingredients available,",
+            "got_it": "GOT IT!"
+        },
+        "ingredients_table": {
+            "name": "Name",
+            "is_veggie": "Vegetariano",
+            "is_vegan": "Vegan"
         },
         "auth": {
             "failed": "These credentials do not match our records.",
@@ -144,7 +151,14 @@ export default {
         "cookies_table": {
             "name": "Nome",
             "weight": "Peso",
-            "calories": "Calorie"
+            "calories": "Calorie",
+            "no_ingredients_available": "Ingredienti non disponibili,",
+            "got_it": "Ho capito"
+        },
+        "ingredients_table": {
+            "name": "Nome",
+            "is_veggie": "Vegetariano",
+            "is_vegan": "Vegano"
         },
         "cookies_form": {
             "search_cookies": "Cerca biscotti..."
