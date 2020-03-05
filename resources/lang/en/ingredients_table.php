@@ -3,7 +3,7 @@
 return [
 
     'name' => 'Name',
-    'is_veggie' => 'Vegetariano',
+    'is_veggie' => 'Vegetarian',
     'is_vegan' => 'Vegan',
 
 ];
