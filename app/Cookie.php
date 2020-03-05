@@ -25,6 +25,46 @@ class Cookie extends Model
         return $this->getAllIngredients()->where('ingredients.is_deleted',false);
     }
 
+    public function isVeggie()
+    {
+        $cookieIngredients = $this->getAllIngredients()->get();
+        $isVeggie = true;
+        $i = 0;
+        while ($i < count($cookieIngredients) && $isVeggie == true)
+        {
+            $ingredient = $cookieIngredients[$i];
+            if (!$ingredient->is_veggie)
+            {
+                $isVeggie = false;
+            }
+            else
+            {
+                $i++;
+            }
+        }
+        return $isVeggie;
+    }
+
+    public function isVegan()
+    {
+        $cookieIngredients = $this->getAllIngredients()->get();
+        $isVegan = true;
+        $i = 0;
+        while ($i < count($cookieIngredients) && $isVegan == true)
+        {
+            $ingredient = $cookieIngredients[$i];
+            if (!$ingredient->is_vegan)
+            {
+                $isVegan = false;
+            }
+            else
+            {
+                $i++;
+            }
+        }
+        return $isVegan;
+    }
+
     public function isDeleted()
     {
         return $this->is_deleted;
