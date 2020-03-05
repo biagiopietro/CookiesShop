@@ -1,3 +1,6 @@
+
+@import "modal";
+
 :root {
     --color-primary: #ea9225;
     --color-nav-hover: rgba(234, 0, 18, 0.41)
@@ -26,6 +29,10 @@
 
 .hover\:bg-gray:hover {
     background-color: rgba(81, 51, 13, 0.31);
+}
+
+.text-orange {
+    color: var(--color-primary);
 }
 
 body {
