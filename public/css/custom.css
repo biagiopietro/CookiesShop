@@ -74,7 +74,9 @@
     visibility: visible;
 }
 
-
+tr:hover {
+    cursor: pointer;
+}
 
 body {
     font-family: "Varela Round", serif;
