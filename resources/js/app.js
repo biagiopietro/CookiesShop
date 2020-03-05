@@ -7,6 +7,9 @@
 // require('./bootstrap');
 // require('./welcome');
 import 'flag-icon-css/css/flag-icon.css'
+import VueInternationalization from 'vue-i18n';
+import Locale from './vue-i18n-locales.generated';
+import Vue from 'vue';
 
 window.Vue = require('vue');
 
@@ -24,6 +27,8 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('carousel', require('./components/Carousel.vue').default);
 Vue.component('navbar', require('./components/Navbar.vue').default);
+Vue.component('cookies-section', require('./components/CookiesSection.vue').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,8 +36,18 @@ Vue.component('navbar', require('./components/Navbar.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 //
+Vue.use(VueInternationalization);
+Vue.use(require('vue-resource'));
+
+const lang = document.documentElement.lang.substr(0, 2);
+const i18n = new VueInternationalization({
+    locale: lang,
+    messages: Locale
+});
+
 const app = new Vue({
     el: '#app',
+    i18n,
 });
 
 const header = new Vue({

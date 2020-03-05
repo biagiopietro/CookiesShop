@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 class CookieController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
+        // If the request has header `Accept: */json`, return JSON
+        if ($request->wantsJson())
+        {
+            return $this->search($request);
+        }
         return view('cookies', ['cookies' => $this->paginateCookies(Cookie::query())]);
     }
 
-    public function search(Request $request)
+    private function search(Request $request)
     {
         if ($request->filled('search'))
         {
@@ -25,15 +30,11 @@ class CookieController extends Controller
             $filtered_cookies = Cookie::query();
 
         }
-        //if (count($filtered_cookies) <= 0)
-        {
-//            $view = $view->withMessage("No cookies found");
-        }
-        return $view = view('cookies', ['cookies' => $this->paginateCookies($filtered_cookies)]);
+        return $this->paginateCookies($filtered_cookies);
     }
 
-    public function paginateCookies($cookies)
+    private function paginateCookies($cookies)
     {
-        return $cookies->paginate(10)->onEachSide(2);
+        return response()->json($cookies->paginate(10));
     }
 }
