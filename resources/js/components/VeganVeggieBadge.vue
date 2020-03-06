@@ -1,6 +1,6 @@
 <template>
     <span>
-        <button v-if="is_veggie" class="tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-0">
+        <button v-if="is_veggie" class="tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-10">
             v
             <span class="tooltiptext">{{ $t('ingredients_table.is_veggie')}}</span>
         </button>

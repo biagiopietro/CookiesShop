@@ -240,9 +240,6 @@ __webpack_require__.r(__webpack_exports__);
     this.getCookies();
   },
   methods: {
-    hi: function hi() {
-      alert("hi");
-    },
     showIngredients: function showIngredients(id) {
       var _this = this;
 
@@ -10578,7 +10575,8 @@ var render = function() {
       ? _c(
           "button",
           {
-            staticClass: "tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-0"
+            staticClass:
+              "tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-10"
           },
           [
             _vm._v("\n        v\n        "),
