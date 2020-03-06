@@ -5,7 +5,7 @@ This is a simple Cookies shop application written using Laravel as framework.
 
 ## Cookies Shop online
 Too lazy to test Cookies Shop project locally?
-Don't worry! Try it online [Cookies Shop](https://cookies-shop.herokuapp.com/)!!!
+Don't worry! Try it online [Cookies Shop](http://cookies-shop.herokuapp.com/cookies)!!!
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
