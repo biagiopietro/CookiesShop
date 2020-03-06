@@ -10,12 +10,13 @@
                     <div v-if="ingredients.length !== 0">
                         <ul class="px-6 py-4 sm:list-none md:list-none lg:list-none xl:list-none">
                             <li>
-                                <span v-for="ingredient in ingredients" class="m-1 inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">{{ ingredient.name }}</span>
+                                <span v-for="ingredient in ingredients"
+                                      class="m-1 inline-block bg-gray-200 rounded-full px-3 py-2 text-sm font-semibold text-gray-700">{{ ingredient.name }}</span>
                             </li>
                         </ul>
                     </div>
                     <div v-else class="pb-4">
-                        <span class="opacity-25" >{{ $t('cookies_table.no_ingredients_available') }}</span>
+                        <span class="opacity-25">{{ $t('cookies_table.no_ingredients_available') }}</span>
                     </div>
                 </ul>
             </div>
@@ -28,53 +29,67 @@
 
         </vue-tailwind-modal>
         <div class="w-full">
-            <form class="bg-white rounded mt-4 mb-4" method="GET" role="search">
-                <input type="hidden" name="_token" :value="csrf">
-                <div class="row-auto mb-4 flex">
-                    <input class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight"  v-on:keydown.enter.prevent="getCookies"
-                           v-model="form.search" id="search" type="text" name="search" v-bind:placeholder="$t('cookies_form.search_cookies')">
-                    <button
-                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:shadow-outline" type="button" v-on:click="getCookies">
-                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                            <path fill="currentColor"
-                                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>
-                        </svg>
-                    </button>
-                </div>
-            </form>
+<!--            <form class="bg-white rounded mt-4 mb-4" method="GET" role="search">-->
+<!--                <input type="hidden" name="_token" :value="csrf">-->
+<!--                <div class="row-auto mb-4 flex">-->
+<!--                    <input class="shadow appearance-none border rounded-l w-full py-2 px-3 text-gray-700 leading-tight"-->
+<!--                           v-on:keydown.enter.prevent="getCookies"-->
+<!--                           v-model="search" id="search" type="text" name="search"-->
+<!--                           v-bind:placeholder="$t('cookies_form.search_cookies')">-->
+<!--                    <button-->
+<!--                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:shadow-outline"-->
+<!--                        type="button" v-on:click="$t('cookies_form.search_cookies')">-->
+<!--                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">-->
+<!--                            <path fill="currentColor"-->
+<!--                                  d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"/>-->
+<!--                        </svg>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </form>-->
+
+            <search-bar
+                :csrf="csrf"
+                :placeholder="$t('cookies_form.search_cookies')"
+                v-on:searchFunction="getCookies"
+                @update="setSearchValue">
+            </search-bar>
         </div>
         <div class="">
             <table class="w-full table-auto mb-4 mt-4">
                 <thead>
                 <tr>
-                    <th class="px-4 py-2 bg-red text-white">{{ $t('cookies_table.name') }}</th>
-                    <th class="px-4 py-2 bg-red text-white">{{ $t('cookies_table.weight') }}</th>
-                    <th class="px-4 py-2 bg-red text-white">{{ $t('cookies_table.calories') }}</th>
+                    <custom-th
+                        :content="$t('cookies_table.name')"
+                        :ordering_name="'name'"
+                        :ordering="currentSortDir">
+                    </custom-th>
+                    <custom-th
+                        :content="$t('cookies_table.weight')"
+                        :ordering_name="'weight'"
+                        :ordering="currentSortDir">
+                    </custom-th>
+                    <custom-th
+                        :content="$t('cookies_table.calories')"
+                        :ordering_name="'calories'"
+                        :ordering="currentSortDir">
+                    </custom-th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="cookie in cookies.data" v-on:click="showIngredients(cookie.id)" class="alternate-color hover:bg-gray z-10">
+                <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)"
+                    class="alternate-color hover:bg-gray z-10">
                     <td class="px-4 py-2">
-                        <span :id="'cookie-name-' +cookie.id" >{{ cookie.name }}</span>
-                        <button v-if="cookie.is_veggie" class="tooltip rounded-6 bg-green-900 w-6 h-6 z-0">
-                            v
-                            <span class="tooltiptext">{{ $t('ingredients_table.is_veggie')}}</span>
-                        </button>
-                        <button v-if="cookie.is_veggie && cookie.is_vegan" class="tooltip rounded-6 bg-cyan w-6 h-6 ml--2 z-0">
-                            v
-                            <span class="tooltiptext">{{ $t('ingredients_table.is_vegan')}}</span>
-                        </button>
-                        <button v-else-if="cookie.is_vegan" class="tooltip rounded-6 bg-cyan w-6 h-6 z-0">
-                            v
-                            <span class="tooltiptext">{{ $t('ingredients_table.is_vegan')}}</span>
-                        </button>
+                        <span :id="'cookie-name-' +cookie.id">{{ cookie.name }}</span>
+                        <vegan-veggie-badge :is_veggie="cookie.is_veggie"
+                                            :is_vegan="cookie.is_vegan">
+                        </vegan-veggie-badge>
                     </td>
                     <td class="text-center px-4 py-2">{{ cookie.weight }}</td>
                     <td class="text-center px-4 py-2">{{ cookie.calories }}</td>
                 </tr>
                 </tbody>
             </table>
-            <pagination :data="cookies" @pagination-change-page="getCookies" :limit="limit"></pagination>
+            <pagination :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
         </div>
     </div>
 </template>
@@ -90,19 +105,21 @@
         data: function () {
             return {
                 visible: false,
-                cookies: {},
+                cookies: [],
+                pagination: {},
                 ingredients: {},
                 limit: 4,
+                search: "",
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                form: {
-                    search:""
-                }
+                currentSort: 'name',
+                currentSortDir: 'asc'
             };
         },
         created() {
             this.getCookies();
         },
         methods: {
+            hi: function() {alert("hi");},
             showIngredients: function (id) {
 
                 // Set the width of the dialog
@@ -113,17 +130,19 @@
                     'X-CSRF-TOKEN': this.csrf,
                 };
 
-
-                this.$http.get('/cookies/'+id+'/ingredients', {headers})
+                this.$http.get('/cookies/' + id + '/ingredients', {headers})
                     .then(response => {
                         return response.json();
                     }).then(data => {
                     document.getElementsByClassName('relative')[0].classList.remove("w-full");
                     document.getElementsByClassName('relative')[0].classList.add("w-auto");
-                    var cookieName = document.getElementById("cookie-name-"+id).innerText;
+                    var cookieName = document.getElementById("cookie-name-" + id).innerText;
                     document.getElementById("modal-title").innerText = cookieName;
                     this.ingredients = data;
                 });
+            },
+            setSearchValue: function(search) {
+                this.search = search;
             },
             getCookies(page) {
                 if (typeof page === 'undefined') {
@@ -134,26 +153,34 @@
                     'X-CSRF-TOKEN': this.csrf,
                 };
 
-                this.$http.get('/cookies?search=' + this.form.search + '&page=' + page, {headers})
+                this.$http.get('/cookies?search=' + this.search + '&page=' + page, {headers})
                     .then(response => {
                         return response.json();
                     }).then(data => {
-                    this.cookies = data;
+                    this.cookies = data.data;
+                    this.pagination = data;
                 });
             },
-            searchCookies(search, page) {
-                if (typeof page === 'undefined') {
-                    page = 1;
+            sort: function (s) {
+                //if s == current sort, reverse
+                if (s === this.currentSort) {
+                    this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
                 }
-
-                this.$http.get('/searchCookies?search=' + search + '&page=' + page)
-                    .then(response => {
-                        return response.json();
-                    }).then(data => {
-                    this.cookies = data;
+                this.currentSort = s;
+            },
+        },
+        computed: {
+            sortedCookies: function () {
+                return this.cookies.sort((a, b) => {
+                    let modifier = 1;
+                    if (this.currentSortDir === 'desc') modifier = -1;
+                    if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier;
+                    if (a[this.currentSort] > b[this.currentSort]) return modifier;
+                    return 0;
                 });
             }
         }
+
     }
 
 </script>

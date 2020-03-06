@@ -29,6 +29,10 @@ Vue.component('carousel', require('./components/Carousel.vue').default);
 Vue.component('navbar', require('./components/Navbar.vue').default);
 Vue.component('cookies-section', require('./components/CookiesSection.vue').default);
 Vue.component('pagination', require('laravel-vue-pagination'));
+Vue.component('order-icon', require('./components/OrderIcon.vue').default);
+Vue.component('vegan-veggie-badge', require('./components/VeganVeggieBadge.vue').default);
+Vue.component('custom-th', require('./components/CustomTh.vue').default);
+Vue.component('search-bar', require('./components/SearchBar.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
