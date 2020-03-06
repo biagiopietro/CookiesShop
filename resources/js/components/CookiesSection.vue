@@ -101,7 +101,6 @@
             this.getCookies();
         },
         methods: {
-            hi: function() {alert("hi");},
             showIngredients: function (id) {
 
                 // Set the width of the dialog
