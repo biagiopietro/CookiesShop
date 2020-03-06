@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCookiesTable extends Migration
@@ -22,6 +23,8 @@ class CreateCookiesTable extends Migration
 
             $table->timestamps();
         });
+        // Force auto increment to start at 1
+        DB::statement('ALTER TABLE cookies AUTO_INCREMENT = 1;');
     }
 
     /**
