@@ -40,12 +40,10 @@
         },
         methods: {
             searchFunction: function() {
+                // Don't invert these functions
+                this.$emit('update', this.search);
                 this.$emit('searchFunction');
-                this.$emit('update', this.search);
             },
-        },
-        mounted() {
-                this.$emit('update', this.search);
         },
     }
 </script>

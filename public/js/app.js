@@ -218,24 +218,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -520,12 +502,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     searchFunction: function searchFunction() {
-      this.$emit('searchFunction');
+      // Don't invert these functions
       this.$emit('update', this.search);
+      this.$emit('searchFunction');
     }
-  },
-  mounted: function mounted() {
-    this.$emit('update', this.search);
   }
 });
 
@@ -10055,9 +10035,9 @@ var render = function() {
               },
               [
                 _vm._v(
-                  "\n                    " +
+                  "\n                " +
                     _vm._s(_vm.$t("cookies_table.got_it")) +
-                    "\n                "
+                    "\n            "
                 )
               ]
             )
