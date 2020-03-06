@@ -24,7 +24,7 @@ class CreateIngredientsTable extends Migration
             $table->timestamps();
         });
         // Force auto increment to start at 1
-        DB::statement('ALTER TABLE cookies AUTO_INCREMENT = 1;');
+        DB::statement('ALTER TABLE ingredients AUTO_INCREMENT = 1;');
     }
 
     /**
