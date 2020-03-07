@@ -7,6 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 
 define("COOKIES_FILE_YAML", "database/seeds/from_yaml/cookies.yaml");
 define("COOKIES", "cookies");
+define("COOKIES_ID", "id");
 define("COOKIES_NAME", "name");
 define("COOKIES_WEIGHT", "weight");
 define("COOKIES_CALORIES", "calories");
@@ -82,6 +83,7 @@ class CookiesTableSeeder extends Seeder
     private function insertCookie($cookie)
     {
         DB::table('cookies')->insert([
+            'id' => $this->getIdForHerokuMysqlProvider($cookie[INGREDIENTS_ID]),
             'name' => $cookie[COOKIES_NAME],
             'weight' => $cookie[COOKIES_WEIGHT],
             'calories' => $cookie[COOKIES_CALORIES],
@@ -91,8 +93,14 @@ class CookiesTableSeeder extends Seeder
     private function checkIfCookieHasAllFields($cookie)
     {
         return (array_key_exists(COOKIES_NAME, $cookie) &&
+            array_key_exists(COOKIES_ID, $cookie) &&
             array_key_exists(COOKIES_WEIGHT, $cookie) &&
             array_key_exists(COOKIES_CALORIES, $cookie));
+    }
+
+    private function getIdForHerokuMysqlProvider($id)
+    {
+        return ($id * 10 ) + 1;
     }
 
     private function loadCookiesYaml()
