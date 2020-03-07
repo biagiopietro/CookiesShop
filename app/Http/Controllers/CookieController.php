@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Log;
 class CookieController extends Controller
 {
     //
+    const RESULT_PER_PAGE = 10;
+
     public function index(Request $request)
     {
         // If the request has header `Accept: */json`, return JSON
@@ -38,8 +40,9 @@ class CookieController extends Controller
 
     private function paginateCookies($cookies)
     {
-        return response()->json($cookies->paginate(10));
+        return response()->json($cookies->paginate(self::RESULT_PER_PAGE));
     }
+
     private function orderCookiesByNameASC($cookies)
     {
         return $cookies->orderBy('name','ASC');

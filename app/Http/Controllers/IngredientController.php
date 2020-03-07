@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Log;
 class IngredientController extends Controller
 {
     //
+    const RESULT_PER_PAGE = 10;
 
     public function index(Request $request)
     {
@@ -33,7 +34,7 @@ class IngredientController extends Controller
 
     private function paginateIngredient($ingredients)
     {
-        return response()->json($ingredients->paginate(10));
+        return response()->json($ingredients->paginate(self::RESULT_PER_PAGE));
     }
 
     private function orderIngredientsByNameASC($cookies)
