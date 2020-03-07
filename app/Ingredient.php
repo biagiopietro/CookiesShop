@@ -9,6 +9,10 @@ class Ingredient extends Model
     //
     protected $table = 'ingredients';
     protected $primaryKey = 'id';
+    protected $casts = [
+        'is_veggie' => 'boolean',
+        'is_vegan' => 'boolean',
+    ];
 
     public function getAllCookies()
     {
