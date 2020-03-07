@@ -92,7 +92,7 @@ class IngredientsTableSeeder extends Seeder
 
     private function getIdForHerokuMysqlProvider($id)
     {
-        return ($id * 10 ) + 1;
+        return (($id-1) * 10 ) + 1;
     }
 
     private function loadIngredientsYaml()
