@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::get('/cookies', 'CookieController@index');
 Route::get('/cookies/{id}/ingredients', 'CookieController@ingredients');
+Route::get('/ingredients', 'IngredientController@index');
 
 Route::get('/{locale}', function ($locale) {
     Session::put('locale',$locale);
