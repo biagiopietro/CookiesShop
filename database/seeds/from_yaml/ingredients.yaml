@@ -1,37 +1,37 @@
 ingredients:
   - name: butter
-    is_veggie: false
+    is_veggie: true
     is_vegan: false
   - name: sugar
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: milk
-    is_veggie: false
+    is_veggie: true
     is_vegan: false
   - name: egg
     is_veggie: false
     is_vegan: false
   - name: baking soda
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: salt
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: vanilla
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: chocolate
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: flour
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: banana
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: strawberry
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: speak
     is_veggie: false
     is_vegan: false
@@ -39,44 +39,44 @@ ingredients:
     is_veggie: false
     is_vegan: false
   - name: caraway seeds
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: onion
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: cumin
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: candied fruit
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: cinnamon
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: vegetable oil
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: ginger
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: cornstarch
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: peanut butter
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: anise
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: cream cheese
-    is_veggie: false
+    is_veggie: true
     is_vegan: false
   - name: pecans
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: peppermint
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: mincemeat
     is_veggie: false
     is_vegan: false
@@ -84,32 +84,32 @@ ingredients:
     is_veggie: false
     is_vegan: false
   - name: dates
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: orange juice
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: orange zest
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: sesame seeds
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: coconut
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: nutmeg
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: honey
-    is_veggie: false
+    is_veggie: true
     is_vegan: false
   - name: candied mixed fruit
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: macadamia nuts
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
   - name: cranberries
-    is_veggie: false
-    is_vegan: false
+    is_veggie: true
+    is_vegan: true
