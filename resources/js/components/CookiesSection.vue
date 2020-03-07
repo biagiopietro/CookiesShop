@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-10'">
+        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20'">
             <div class="bg-white w-auto">
                 <ul class="max-w-sm rounded overflow-hidden ">
                     <div class="px-6 pt-4">

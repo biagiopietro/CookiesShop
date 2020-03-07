@@ -10177,7 +10177,7 @@ var render = function() {
       _c(
         "vue-tailwind-modal",
         {
-          class: "z-10",
+          class: "z-20",
           attrs: { showing: _vm.visible },
           on: {
             close: function($event) {
