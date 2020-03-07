@@ -42,18 +42,15 @@
                 <tr>
                     <custom-th
                         :content="$t('cookies_table.name')"
-                        :ordering_name="'name'"
-                        :ordering="currentSortDir">
+                        :currentSort="'name'">
                     </custom-th>
                     <custom-th
                         :content="$t('cookies_table.weight')"
-                        :ordering_name="'weight'"
-                        :ordering="currentSortDir">
+                        :currentSort="'weight'">
                     </custom-th>
                     <custom-th
                         :content="$t('cookies_table.calories')"
-                        :ordering_name="'calories'"
-                        :ordering="currentSortDir">
+                        :currentSort="'calories'">
                     </custom-th>
                 </tr>
                 </thead>
@@ -117,7 +114,7 @@
                     }).then(data => {
                     document.getElementsByClassName('relative')[0].classList.remove("w-full");
                     document.getElementsByClassName('relative')[0].classList.add("w-auto");
-                    var cookieName = document.getElementById("cookie-name-" + id).innerText;
+                    const cookieName = document.getElementById("cookie-name-" + id).innerText;
                     document.getElementById("modal-title").innerText = cookieName;
                     this.ingredients = data;
                 });
@@ -149,6 +146,9 @@
                 }
                 this.currentSort = s;
             },
+            getCurrentSortDir: function() {
+                return this.currentSortDir;
+            }
         },
         computed: {
             sortedCookies: function () {

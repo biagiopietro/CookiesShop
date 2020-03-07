@@ -215,9 +215,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -292,6 +289,9 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.currentSort = s;
+    },
+    getCurrentSortDir: function getCurrentSortDir() {
+      return this.currentSortDir;
     }
   },
   computed: {
@@ -336,18 +336,31 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true
     },
-    ordering_name: {
-      type: String,
-      required: true
-    },
-    ordering: {
+    currentSort: {
       type: String,
       required: true
     }
   },
+  data: function data() {
+    return {
+      columnCurrentSort: this.currentSort,
+      columnCurrentSortDir: this.getCurrentSortDir()
+    };
+  },
   methods: {
     sort: function sort(s) {
       this.$parent.sort(s);
+      this.columnCurrentSort = this.currentSort;
+      this.columnCurrentSortDir = this.getCurrentSortDir();
+    },
+    getColumnCurrentSort: function getColumnCurrentSort() {
+      return this.columnCurrentSort;
+    },
+    getColumnCurrentSortDir: function getColumnCurrentSortDir() {
+      return this.columnCurrentSortDir;
+    },
+    getCurrentSortDir: function getCurrentSortDir() {
+      return this.$parent.getCurrentSortDir();
     }
   }
 });
@@ -440,9 +453,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    ordering: {
+    currentSort: {
       type: String,
       required: true
+    }
+  },
+  methods: {
+    getColumnCurrentSort: function getColumnCurrentSort() {
+      return this.$parent.getColumnCurrentSort();
+    },
+    getColumnCurrentSortDir: function getColumnCurrentSortDir() {
+      return this.$parent.getColumnCurrentSortDir();
     }
   }
 });
@@ -10069,24 +10090,21 @@ var render = function() {
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.name"),
-                      ordering_name: "name",
-                      ordering: _vm.currentSortDir
+                      currentSort: "name"
                     }
                   }),
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.weight"),
-                      ordering_name: "weight",
-                      ordering: _vm.currentSortDir
+                      currentSort: "weight"
                     }
                   }),
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.calories"),
-                      ordering_name: "calories",
-                      ordering: _vm.currentSortDir
+                      currentSort: "calories"
                     }
                   })
                 ],
@@ -10181,7 +10199,7 @@ var render = function() {
       staticClass: "px-4 py-2 bg-red text-white",
       on: {
         click: function($event) {
-          return _vm.sort(_vm.ordering_name)
+          return _vm.sort(_vm.currentSort)
         }
       }
     },
@@ -10191,7 +10209,7 @@ var render = function() {
         { staticClass: "flex justify-center" },
         [
           _vm._v("\n        " + _vm._s(_vm.content) + "\n        "),
-          _c("order-icon", { attrs: { ordering: _vm.ordering } })
+          _c("order-icon", { attrs: { currentSort: _vm.currentSort } })
         ],
         1
       )
@@ -10399,7 +10417,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.ordering === "asc"
+    _vm.getColumnCurrentSortDir() !== "asc" &&
+    _vm.getColumnCurrentSort() === this.currentSort
       ? _c("div", [
           _c(
             "svg",
