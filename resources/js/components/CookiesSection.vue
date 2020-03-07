@@ -90,7 +90,7 @@
                 limit: 4,
                 search: "",
                 csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                currentSort: 'name',
+                currentSort: '',
                 currentSortDir: 'asc'
             };
         },
@@ -141,7 +141,7 @@
             },
             sort: function (s) {
                 //if s == current sort, reverse
-                if (s === this.currentSort) {
+                if (s === this.currentSort || this.currentSort === "") {
                     this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
                 }
                 this.currentSort = s;

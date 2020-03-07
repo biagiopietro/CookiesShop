@@ -29,8 +29,15 @@
         methods: {
             sort: function (s) {
                 this.$parent.sort(s);
+                if (this.columnCurrentSortDir === this.getCurrentSortDir())
+                {
+                    this.columnCurrentSortDir =  this.columnCurrentSortDir === 'asc' ? 'desc' : 'asc';
+                }
+                else
+                {
+                    this.columnCurrentSortDir =  this.getCurrentSortDir();
+                }
                 this.columnCurrentSort = this.currentSort;
-                this.columnCurrentSortDir =  this.getCurrentSortDir();
             },
             getColumnCurrentSort: function() {
                 return this.columnCurrentSort;

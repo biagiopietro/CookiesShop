@@ -229,7 +229,7 @@ __webpack_require__.r(__webpack_exports__);
       limit: 4,
       search: "",
       csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-      currentSort: 'name',
+      currentSort: '',
       currentSortDir: 'asc'
     };
   },
@@ -284,7 +284,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     sort: function sort(s) {
       //if s == current sort, reverse
-      if (s === this.currentSort) {
+      if (s === this.currentSort || this.currentSort === "") {
         this.currentSortDir = this.currentSortDir === 'asc' ? 'desc' : 'asc';
       }
 
@@ -350,8 +350,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     sort: function sort(s) {
       this.$parent.sort(s);
+
+      if (this.columnCurrentSortDir === this.getCurrentSortDir()) {
+        this.columnCurrentSortDir = this.columnCurrentSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        this.columnCurrentSortDir = this.getCurrentSortDir();
+      }
+
       this.columnCurrentSort = this.currentSort;
-      this.columnCurrentSortDir = this.getCurrentSortDir();
     },
     getColumnCurrentSort: function getColumnCurrentSort() {
       return this.columnCurrentSort;
