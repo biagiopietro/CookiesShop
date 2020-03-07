@@ -83,7 +83,7 @@ class CookiesTableSeeder extends Seeder
     private function insertCookie($cookie)
     {
         DB::table('cookies')->insert([
-            'id' => $this->getIdForHerokuMysqlProvider($cookie[INGREDIENTS_ID]),
+            'id' => $this->getIdForHerokuMysqlProvider($cookie[COOKIES_ID]),
             'name' => $cookie[COOKIES_NAME],
             'weight' => $cookie[COOKIES_WEIGHT],
             'calories' => $cookie[COOKIES_CALORIES],
