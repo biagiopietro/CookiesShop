@@ -73,8 +73,8 @@ class CookieRecipesTableSeeder extends Seeder
     private function insertCookieRecipe($cookie)
     {
         DB::table('cookie_recipes')->insert([
-            'cookie_id' => $cookie[COOKIE_ID],
-            'ingredient_id' => $cookie[INGREDIENT_ID],
+            'cookie_id' => $this->getIdForHerokuMysqlProvider($cookie[COOKIE_ID]),
+            'ingredient_id' => $this->getIdForHerokuMysqlProvider($cookie[INGREDIENT_ID]),
         ]);
     }
 
@@ -82,6 +82,12 @@ class CookieRecipesTableSeeder extends Seeder
     {
         return (array_key_exists(COOKIE_ID, $cookieRecipe) &&
             array_key_exists(INGREDIENT_ID, $cookieRecipe));
+    }
+
+
+    private function getIdForHerokuMysqlProvider($id)
+    {
+        return ($id * 10 ) + 1;
     }
 
     private function loadCookieRecipesYaml()
