@@ -215,6 +215,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -330,6 +333,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     content: {
@@ -338,6 +343,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     currentSort: {
       type: String,
+      required: true
+    },
+    isColumnNumbered: {
+      type: Boolean,
       required: true
     }
   },
@@ -457,10 +466,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     currentSort: {
       type: String,
+      required: true
+    },
+    isColumnNumbered: {
+      type: Boolean,
       required: true
     }
   },
@@ -10096,21 +10124,24 @@ var render = function() {
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.name"),
-                      currentSort: "name"
+                      currentSort: "name",
+                      isColumnNumbered: false
                     }
                   }),
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.weight"),
-                      currentSort: "weight"
+                      currentSort: "weight",
+                      isColumnNumbered: true
                     }
                   }),
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
                       content: _vm.$t("cookies_table.calories"),
-                      currentSort: "calories"
+                      currentSort: "calories",
+                      isColumnNumbered: true
                     }
                   })
                 ],
@@ -10215,7 +10246,12 @@ var render = function() {
         { staticClass: "flex justify-center" },
         [
           _vm._v("\n        " + _vm._s(_vm.content) + "\n        "),
-          _c("order-icon", { attrs: { currentSort: _vm.currentSort } })
+          _c("order-icon", {
+            attrs: {
+              currentSort: _vm.currentSort,
+              isColumnNumbered: _vm.isColumnNumbered
+            }
+          })
         ],
         1
       )
@@ -10426,40 +10462,82 @@ var render = function() {
     _vm.getColumnCurrentSortDir() !== "asc" &&
     _vm.getColumnCurrentSort() === this.currentSort
       ? _c("div", [
-          _c(
-            "svg",
-            {
-              staticStyle: { width: "16px", height: "16px" },
-              attrs: { viewBox: "0 0 24 24" }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  fill: "currentColor",
-                  d:
-                    "M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12M9 13V15L5.67 19H9V21H3V19L6.33 15H3V13M7 3H5C3.9 3 3 3.9 3 5V11H5V9H7V11H9V5C9 3.9 8.11 3 7 3M7 7H5V5H7Z"
-                }
-              })
-            ]
-          )
+          !_vm.isColumnNumbered
+            ? _c("div", [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: { width: "16px", height: "16px" },
+                    attrs: { viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        fill: "currentColor",
+                        d:
+                          "M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12M9 13V15L5.67 19H9V21H3V19L6.33 15H3V13M7 3H5C3.9 3 3 3.9 3 5V11H5V9H7V11H9V5C9 3.9 8.11 3 7 3M7 7H5V5H7Z"
+                      }
+                    })
+                  ]
+                )
+              ])
+            : _c("div", [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: { width: "24px", height: "16px" },
+                    attrs: { viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        fill: "currentColor",
+                        d:
+                          "M7 21H3V19H7V18H5C3.9 18 3 17.11 3 16V15C3 13.9 3.9 13 5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21M7 15H5V16H7M5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11H5C3.9 11 3 10.11 3 9V5C3 3.9 3.9 3 5 3M5 9H7V5H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                      }
+                    })
+                  ]
+                )
+              ])
         ])
       : _c("div", [
-          _c(
-            "svg",
-            {
-              staticStyle: { width: "16px", height: "16px" },
-              attrs: { viewBox: "0 0 24 24" }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  fill: "currentColor",
-                  d:
-                    "M7 13H5C3.9 13 3 13.9 3 15V21H5V19H7V21H9V15C9 13.9 8.11 13 7 13M7 17H5V15H7M9 3V5L5.67 9H9V11H3V9L6.33 5H3V3M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
-                }
-              })
-            ]
-          )
+          !_vm.isColumnNumbered
+            ? _c("div", [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: { width: "16px", height: "16px" },
+                    attrs: { viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        fill: "currentColor",
+                        d:
+                          "M7 13H5C3.9 13 3 13.9 3 15V21H5V19H7V21H9V15C9 13.9 8.11 13 7 13M7 17H5V15H7M9 3V5L5.67 9H9V11H3V9L6.33 5H3V3M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                      }
+                    })
+                  ]
+                )
+              ])
+            : _c("div", [
+                _c(
+                  "svg",
+                  {
+                    staticStyle: { width: "24px", height: "16px" },
+                    attrs: { viewBox: "0 0 24 24" }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        fill: "currentColor",
+                        d:
+                          "M7 11H3V9H7V8H5C3.9 8 3 7.11 3 6V5C3 3.9 3.9 3 5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11M7 5H5V6H7M5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21H5C3.9 21 3 20.11 3 19V15C3 13.9 3.9 13 5 13M5 19H7V15H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                      }
+                    })
+                  ]
+                )
+              ])
         ])
   ])
 }

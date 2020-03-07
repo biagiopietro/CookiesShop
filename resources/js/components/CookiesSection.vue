@@ -42,15 +42,18 @@
                 <tr>
                     <custom-th
                         :content="$t('cookies_table.name')"
-                        :currentSort="'name'">
+                        :currentSort="'name'"
+                        :isColumnNumbered="false">
                     </custom-th>
                     <custom-th
                         :content="$t('cookies_table.weight')"
-                        :currentSort="'weight'">
+                        :currentSort="'weight'"
+                        :isColumnNumbered="true">
                     </custom-th>
                     <custom-th
                         :content="$t('cookies_table.calories')"
-                        :currentSort="'calories'">
+                        :currentSort="'calories'"
+                        :isColumnNumbered="true">
                     </custom-th>
                 </tr>
                 </thead>

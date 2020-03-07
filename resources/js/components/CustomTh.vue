@@ -2,7 +2,9 @@
     <th class="px-4 py-2 bg-red text-white" v-on:click="sort(currentSort)">
         <div class="flex justify-center">
             {{ content }}
-            <order-icon :currentSort="currentSort"></order-icon>
+            <order-icon
+                :currentSort="currentSort"
+                :isColumnNumbered="isColumnNumbered"></order-icon>
         </div>
     </th>
 </template>
@@ -19,6 +21,11 @@
                 type: String,
                 required: true
             },
+            isColumnNumbered: {
+                type: Boolean,
+                required: true
+            }
+
         },
         data: function () {
           return {
