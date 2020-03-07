@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Log;
 class IngredientController extends Controller
 {
     //
+
     public function index(Request $request)
     {
         // If the request has header `Accept: */json`, return JSON
         if ($request->wantsJson()) {
             return $this->search($request);
         }
-        return view('ingredients', ['ingredients' => $this->paginateIngredient(Ingredient::query())]);
+        return view('ingredients', ['ingredients' => $this->paginateIngredient($this->orderIngredientsByNameASC(Ingredient::query()))]);
     }
 
     private function search(Request $request)
@@ -27,11 +28,16 @@ class IngredientController extends Controller
             $filteredIngredients = Ingredient::query();
 
         }
-        return $this->paginateIngredient($filteredIngredients);
+        return $this->paginateIngredient($this->orderIngredientsByNameASC($filteredIngredients));
     }
 
     private function paginateIngredient($ingredients)
     {
         return response()->json($ingredients->paginate(10));
+    }
+
+    private function orderIngredientsByNameASC($cookies)
+    {
+        return $cookies->orderBy('name','ASC');
     }
 }
