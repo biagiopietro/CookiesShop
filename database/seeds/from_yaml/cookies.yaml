@@ -1,77 +1,102 @@
 # credit to: https://www.allrecipes.com/article/most-popular-types-of-cookies/
 cookies:
-  - name: Snickerdoodles
+  - id: 1
+    name: Snickerdoodles
     weight: 5.5
     calories: 120
-  - name: Chocolate Chip
+  - id: 2
+    name: Chocolate Chip
     weight: 10
     calories: 347
-  - name: Oatmeal Raisin
+  - id: 3
+    name: Oatmeal Raisin
     weight: 8.8
     calories: 218
-  - name: Gingersnaps
+  - id: 4
+    name: Gingersnaps
     weight: 4.8
     calories: 105
-  - name: Shortbread
+  - id: 5
+    name: Shortbread
     weight: 7.8
     calories: 111
-  - name: Peanut Butter
+  - id: 6
+    name: Peanut Butter
     weight: 13.6
     calories: 252
-  - name: Gingerbread Whoopie Pies
+  - id: 7
+    name: Gingerbread Whoopie Pies
     weight: 17.5
     calories: 423
-  - name: Chewy Straberry Sugar
+  - id: 8
+    name: Chewy Straberry Sugar
     weight: 14
     calories: 86
-  - name: Biscotti
+  - id: 9
+    name: Biscotti
     weight: 7.8
     calories: 138
-  - name: Butter Snow Flakes
+  - id: 10
+    name: Butter Snow Flakes
     weight: 6.1
     calories: 105
-  - name: Spritz
+  - id: 11
+    name: Spritz
     weight: 8.4
     calories: 144
-  - name: Candy Cane Snowball
+  - id: 12
+    name: Candy Cane Snowball
     weight: 8.7
     calories: 127
-  - name: Mincemeat II
+  - id: 13
+    name: Mincemeat II
     weight: 12.7
     calories: 315
-  - name: Zebra
+  - id: 14
+    name: Zebra
     weight: 10.7
     calories: 214
-  - name: Orange Date Pinwheel
+  - id: 15
+    name: Orange Date Pinwheel
     weight: 4.3
     calories: 114
-  - name: Benne Wafers
+  - id: 16
+    name: Benne Wafers
     weight: 6
     calories: 106
-  - name: Chocolate-Dipped Coconut Macaroons
+  - id: 17
+    name: Chocolate-Dipped Coconut Macaroons
     weight: 9.9
     calories: 133
-  - name: Fortune
+  - id: 18
+    name: Fortune
     weight: 2.6
     calories: 53
-  - name: Chocolate Crinkle
+  - id: 19
+    name: Chocolate Crinkle
     weight: 4.8
     calories: 98
-  - name: Coconut Icebox
+  - id: 20
+    name: Coconut Icebox
     weight: 5
     calories: 118
-  - name: Chewy White Chocolate Chip Gingerbread
+  - id: 21
+    name: Chewy White Chocolate Chip Gingerbread
     weight: 11.1
     calories: 231
-  - name: Walnut Tassies
+  - id: 22
+    name: Walnut Tassies
     weight: 10.4
     calories: 159
-  - name: Chocolate Lebkuchen
+  - id: 23
+    name: Chocolate Lebkuchen
     weight: 3.3
     calories: 135
-  - name: French Macarons
+  - id: 24
+    name: French Macarons
     weight: 6.4
     calories: 125
-  - name: White Chocolate Macadamia Cranberry Dreams
+  - id: 25
+    name: White Chocolate Macadamia Cranberry Dreams
     weight: 10.2
     calories: 202
