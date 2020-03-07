@@ -7,6 +7,7 @@ use Symfony\Component\Yaml\Yaml;
 
 define("INGREDIENTS_FILE_YAML", "database/seeds/from_yaml/ingredients.yaml");
 define("INGREDIENTS", "ingredients");
+define("INGREDIENTS_ID", "id");
 define("INGREDIENTS_NAME", "name");
 define("INGREDIENTS_IS_VEGGIE", "is_veggie");
 define("INGREDIENTS_IS_VEGAN", "is_vegan");
@@ -74,7 +75,7 @@ class IngredientsTableSeeder extends Seeder
     private function insertIngredient($ingredient)
     {
         DB::table('ingredients')->insert([
-            'id' => $ingredient['id'],
+            'id' => $this->getIdForHerokuMysqlProvider($ingredient[INGREDIENTS_ID]),
             'name' => $ingredient[INGREDIENTS_NAME],
             'is_veggie' => $ingredient[INGREDIENTS_IS_VEGGIE],
             'is_vegan' => $ingredient[INGREDIENTS_IS_VEGAN],
@@ -84,8 +85,14 @@ class IngredientsTableSeeder extends Seeder
     private function checkIfIngredientHasAllFields($ingredient)
     {
         return (array_key_exists(INGREDIENTS_NAME, $ingredient) &&
+            array_key_exists(INGREDIENTS_ID, $ingredient) &&
             array_key_exists(INGREDIENTS_IS_VEGGIE, $ingredient) &&
             array_key_exists(INGREDIENTS_IS_VEGAN, $ingredient));
+    }
+
+    private function getIdForHerokuMysqlProvider($id)
+    {
+        return ($id * 10 ) + 1;
     }
 
     private function loadIngredientsYaml()
