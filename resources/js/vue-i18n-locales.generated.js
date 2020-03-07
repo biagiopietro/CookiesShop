@@ -139,6 +139,9 @@ export default {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
         },
+        "ingredients_form": {
+            "search_ingredients": "Search ingredients..."
+        },
         "passwords": {
             "reset": "Your password has been reset!",
             "sent": "We have e-mailed your password reset link!",
@@ -166,6 +169,9 @@ export default {
         "navbar": {
             "cookies": "Biscotti",
             "ingredients": "Ingredienti"
+        },
+        "ingredients_form": {
+            "search_ingredients": "Cerca ingredienti..."
         }
     }
 }
