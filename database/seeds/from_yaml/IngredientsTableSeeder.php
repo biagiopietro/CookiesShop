@@ -74,6 +74,7 @@ class IngredientsTableSeeder extends Seeder
     private function insertIngredient($ingredient)
     {
         DB::table('ingredients')->insert([
+            'id' => $ingredient['id'],
             'name' => $ingredient[INGREDIENTS_NAME],
             'is_veggie' => $ingredient[INGREDIENTS_IS_VEGGIE],
             'is_vegan' => $ingredient[INGREDIENTS_IS_VEGAN],

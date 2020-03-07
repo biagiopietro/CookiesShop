@@ -1,115 +1,153 @@
 ingredients:
-  - name: butter
+  - id: 1
+    name: butter
     is_veggie: true
     is_vegan: false
-  - name: sugar
+  - id: 2
+    name: sugar
     is_veggie: true
     is_vegan: true
-  - name: milk
+  - id: 3
+    name: milk
     is_veggie: true
     is_vegan: false
-  - name: egg
+  - id: 4
+    name: egg
     is_veggie: false
     is_vegan: false
-  - name: baking soda
+  - id: 5
+    name: baking soda
     is_veggie: true
     is_vegan: true
-  - name: salt
+  - id: 6
+    name: salt
     is_veggie: true
     is_vegan: true
-  - name: vanilla
+  - id: 7
+    name: vanilla
     is_veggie: true
     is_vegan: true
-  - name: chocolate
+  - id: 8
+    name: chocolate
     is_veggie: true
     is_vegan: true
-  - name: flour
+  - id: 9
+    name: flour
     is_veggie: true
     is_vegan: true
-  - name: banana
+  - id: 10
+    name: banana
     is_veggie: true
     is_vegan: true
-  - name: strawberry
+  - id: 11
+    name: strawberry
     is_veggie: true
     is_vegan: true
-  - name: speak
+  - id: 12
+    name: speak
     is_veggie: false
     is_vegan: false
-  - name: bacon
+  - id: 13
+    name: bacon
     is_veggie: false
     is_vegan: false
-  - name: caraway seeds
+  - id: 14
+    name: caraway seeds
     is_veggie: true
     is_vegan: true
-  - name: onion
+  - id: 15
+    name: onion
     is_veggie: true
     is_vegan: true
-  - name: cumin
+  - id: 16
+    name: cumin
     is_veggie: true
     is_vegan: true
-  - name: candied fruit
+  - id: 17
+    name: candied fruit
     is_veggie: true
     is_vegan: true
-  - name: cinnamon
+  - id: 18
+    name: cinnamon
     is_veggie: true
     is_vegan: true
-  - name: vegetable oil
+  - id: 19
+    name: vegetable oil
     is_veggie: true
     is_vegan: true
-  - name: ginger
+  - id: 20
+    name: ginger
     is_veggie: true
     is_vegan: true
-  - name: cornstarch
+  - id: 21
+    name: cornstarch
     is_veggie: true
     is_vegan: true
-  - name: peanut butter
+  - id: 22
+    name: peanut butter
     is_veggie: true
     is_vegan: true
-  - name: anise
+  - id: 23
+    name: anise
     is_veggie: true
     is_vegan: true
-  - name: cream cheese
+  - id: 24
+    name: cream cheese
     is_veggie: true
     is_vegan: false
-  - name: pecans
+  - id: 25
+    name: pecans
     is_veggie: true
     is_vegan: true
-  - name: peppermint
+  - id: 26
+    name: peppermint
     is_veggie: true
     is_vegan: true
-  - name: mincemeat
+  - id: 1
+    name: mincemeat
     is_veggie: false
     is_vegan: false
-  - name: shortening
+  - id: 27
+    name: shortening
     is_veggie: false
     is_vegan: false
-  - name: dates
+  - id: 28
+    name: dates
     is_veggie: true
     is_vegan: true
-  - name: orange juice
+  - id: 29
+    name: orange juice
     is_veggie: true
     is_vegan: true
-  - name: orange zest
+  - id: 30
+    name: orange zest
     is_veggie: true
     is_vegan: true
-  - name: sesame seeds
+  - id: 31
+    name: sesame seeds
     is_veggie: true
     is_vegan: true
-  - name: coconut
+  - id: 32
+    name: coconut
     is_veggie: true
     is_vegan: true
-  - name: nutmeg
+  - id: 33
+    name: nutmeg
     is_veggie: true
     is_vegan: true
-  - name: honey
+  - id: 34
+    name: honey
     is_veggie: true
     is_vegan: false
-  - name: candied mixed fruit
+  - id: 35
+    name: candied mixed fruit
     is_veggie: true
     is_vegan: true
-  - name: macadamia nuts
+  - id: 36
+    name: macadamia nuts
     is_veggie: true
     is_vegan: true
-  - name: cranberries
+  - id: 37
+    name: cranberries
     is_veggie: true
     is_vegan: true
