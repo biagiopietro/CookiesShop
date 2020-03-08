@@ -71,7 +71,7 @@
                 </tr>
                 </tbody>
             </table>
-            <pagination :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
+            <pagination :id="'pagination'" :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
         </div>
     </div>
 </template>

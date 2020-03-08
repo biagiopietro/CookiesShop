@@ -34,7 +34,7 @@
                 </tr>
                 </tbody>
             </table>
-            <pagination :data="pagination" @pagination-change-page="getIngredients" :limit="limit"></pagination>
+            <pagination :id="'pagination'" :data="pagination" @pagination-change-page="getIngredients" :limit="limit"></pagination>
         </div>
     </div>
 </template>

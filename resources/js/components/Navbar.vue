@@ -23,11 +23,11 @@
             </div>
         </div>
         <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0 bg-orange">
-            <a href="/cookies" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ cookies }}</a>
-            <a href="/ingredients" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ ingredients }}</a>
-            <a href="/en" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span
+            <a id="cookies" href="/cookies" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ cookies }}</a>
+            <a id="ingredients" href="/ingredients" class="block px-2 py-1 text-white rounded hover:bg-red-40 ">{{ ingredients }}</a>
+            <a id="en" href="/en" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span
                 class="flag-icon flag-icon-gb"></span></a>
-            <a href="/it" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span
+            <a id="it" href="/" class="block px-2 py-1 text-white rounded hover:bg-red-40 "><span
                 class="flag-icon flag-icon-it"></span></a>
         </nav>
     </header>
