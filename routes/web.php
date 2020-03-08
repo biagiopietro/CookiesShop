@@ -21,6 +21,10 @@ Route::get('/cookies', 'CookieController@index');
 Route::get('/cookies/{id}/ingredients', 'CookieController@ingredients');
 Route::get('/ingredients', 'IngredientController@index');
 
+Route::get('/check', function () {
+    include 'check.php';
+});
+
 Route::get('/{locale}', function ($locale) {
     if ($locale != 'en' && $locale != 'it')
     {
