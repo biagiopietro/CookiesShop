@@ -10360,7 +10360,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("pagination", {
-            attrs: { data: _vm.pagination, limit: _vm.limit },
+            attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
             on: { "pagination-change-page": _vm.getCookies }
           })
         ],
@@ -10525,7 +10525,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("pagination", {
-          attrs: { data: _vm.pagination, limit: _vm.limit },
+          attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
           on: { "pagination-change-page": _vm.getIngredients }
         })
       ],
@@ -10661,7 +10661,7 @@ var render = function() {
             {
               staticClass:
                 "block px-2 py-1 text-white rounded hover:bg-red-40 ",
-              attrs: { href: "/cookies" }
+              attrs: { id: "cookies", href: "/cookies" }
             },
             [_vm._v(_vm._s(_vm.cookies))]
           ),
@@ -10671,7 +10671,7 @@ var render = function() {
             {
               staticClass:
                 "block px-2 py-1 text-white rounded hover:bg-red-40 ",
-              attrs: { href: "/ingredients" }
+              attrs: { id: "ingredients", href: "/ingredients" }
             },
             [_vm._v(_vm._s(_vm.ingredients))]
           ),
@@ -10693,7 +10693,7 @@ var staticRenderFns = [
       "a",
       {
         staticClass: "block px-2 py-1 text-white rounded hover:bg-red-40 ",
-        attrs: { href: "/en" }
+        attrs: { id: "en", href: "/en" }
       },
       [_c("span", { staticClass: "flag-icon flag-icon-gb" })]
     )
@@ -10706,7 +10706,7 @@ var staticRenderFns = [
       "a",
       {
         staticClass: "block px-2 py-1 text-white rounded hover:bg-red-40 ",
-        attrs: { href: "/it" }
+        attrs: { id: "it", href: "/" }
       },
       [_c("span", { staticClass: "flag-icon flag-icon-it" })]
     )
@@ -10895,7 +10895,7 @@ var render = function() {
             {
               staticClass:
                 "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r focus:outline-none focus:shadow-outline",
-              attrs: { type: "button" },
+              attrs: { type: "button", id: "buttonSearch" },
               on: {
                 click: function($event) {
                   return _vm.searchFunction()
