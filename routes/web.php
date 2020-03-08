@@ -22,6 +22,10 @@ Route::get('/cookies/{id}/ingredients', 'CookieController@ingredients');
 Route::get('/ingredients', 'IngredientController@index');
 
 Route::get('/{locale}', function ($locale) {
+    if ($locale != 'en' && $locale != 'it')
+    {
+        $locale = 'en';
+    }
     Session::put('locale',$locale);
     return redirect()->back();
 });
