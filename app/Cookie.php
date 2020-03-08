@@ -31,18 +31,21 @@ class Cookie extends Model
     {
         $cookieIngredients = $this->getAllIngredients()->get();
         $isVeggie = true;
-        $i = 0;
-        while ($i < count($cookieIngredients) && $isVeggie == true)
+        if (count($cookieIngredients) > 0)
         {
-            $ingredient = $cookieIngredients[$i];
-            if (!$ingredient->is_veggie)
-            {
-                $isVeggie = false;
+            $i = 0;
+            while ($i < count($cookieIngredients) && $isVeggie == true) {
+                $ingredient = $cookieIngredients[$i];
+                if (!$ingredient->is_veggie) {
+                    $isVeggie = false;
+                } else {
+                    $i++;
+                }
             }
-            else
-            {
-                $i++;
-            }
+        }
+        else
+        {
+            $isVeggie = false;
         }
         return $isVeggie;
     }
@@ -51,18 +54,20 @@ class Cookie extends Model
     {
         $cookieIngredients = $this->getAllIngredients()->get();
         $isVegan = true;
-        $i = 0;
-        while ($i < count($cookieIngredients) && $isVegan == true)
+        if (count($cookieIngredients) > 0) {
+            $i = 0;
+            while ($i < count($cookieIngredients) && $isVegan == true) {
+                $ingredient = $cookieIngredients[$i];
+                if (!$ingredient->is_vegan) {
+                    $isVegan = false;
+                } else {
+                    $i++;
+                }
+            }
+        }
+        else
         {
-            $ingredient = $cookieIngredients[$i];
-            if (!$ingredient->is_vegan)
-            {
-                $isVegan = false;
-            }
-            else
-            {
-                $i++;
-            }
+            $isVegan = false;
         }
         return $isVegan;
     }
