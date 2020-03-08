@@ -14,7 +14,7 @@ class CookieTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
-                ->waitForText(trans('cookies_table.name', [], 'en'))
+                ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies');
         });
     }
@@ -25,7 +25,7 @@ class CookieTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
-                ->waitForText(trans('cookies_table.name', [], 'en'))
+                ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
                 ->type('search', 'Spritz')
                 ->click('#buttonSearch')
@@ -41,7 +41,7 @@ class CookieTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
-                ->waitForText(trans('cookies_table.name', [], 'en'))
+                ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
                 ->type('search', '')
                 ->click('#buttonSearch')
@@ -51,7 +51,33 @@ class CookieTest extends DuskTestCase
         });
     }
 
-    public function testCookiesPagination()
+    public function testCookieIngredients()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visit('/')
+                ->click('a[href="/cookies"]')
+                ->waitForText(trans('cookies_table.name'))
+                ->assertPathIs('/cookies')
+                ->type('search', '')
+                ->waitForText('Benne Wafers')
+                ->assertSee('Benne Wafers')
+                ->click('#cookie-row-151')
+                ->assertPresent('#modal-title')
+                ->waitForText('Benne Wafers')
+                ->assertSee('Benne Wafers')
+                ->assertSee('sesame seeds')
+                ->assertSee('butter')
+                ->assertSee('egg')
+                ->assertSee('vanilla')
+                ->assertSee('flour')
+                ->assertSee('salt')
+                ->assertSee('GOT IT')
+                ->click('#modal-got-it');
+        });
+    }
+
+    public function testCookieWithoutIngredients()
     {
         $this->browse(function (Browser $browser) {
             $browser
@@ -60,14 +86,14 @@ class CookieTest extends DuskTestCase
                 ->waitForText(trans('cookies_table.name', [], 'en'))
                 ->assertPathIs('/cookies')
                 ->type('search', '')
-                ->click('#buttonSearch')
                 ->waitForText('Biscotti')
                 ->assertSee('Biscotti')
-                ->assertPresent('#pagination')
-                ->clickLink(2)
-                ->waitForText('Coconut Icebox')
-                ->assertSee('Coconut Icebox')
-                ->assertDontSee('Biscotti');
+                ->click('#cookie-row-81')
+                ->assertPresent('#modal-title')
+                ->waitForText('Biscotti')
+                ->assertSee('Biscotti')
+                ->assertSee(trans('cookies_table.name'))
+                ->click('#modal-got-it');
         });
     }
 

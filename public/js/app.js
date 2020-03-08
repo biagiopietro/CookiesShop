@@ -10240,7 +10240,7 @@ var render = function() {
               "button",
               {
                 staticClass: "py-2 px-3 rounded bg-orange text-white",
-                attrs: { type: "button" },
+                attrs: { id: "modal-got-it", type: "button" },
                 on: {
                   click: function($event) {
                     _vm.visible = false
@@ -10318,6 +10318,7 @@ var render = function() {
                   "tr",
                   {
                     staticClass: "alternate-color hover:bg-gray z-10",
+                    attrs: { id: "cookie-row-" + cookie.id },
                     on: {
                       click: function($event) {
                         return _vm.showIngredients(cookie.id)

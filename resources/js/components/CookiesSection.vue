@@ -21,7 +21,7 @@
                 </ul>
             </div>
             <div class="flex justify-center">
-                <button type="button" v-on:click="visible = false" class="py-2 px-3 rounded bg-orange text-white">
+                <button id="modal-got-it" type="button" v-on:click="visible = false" class="py-2 px-3 rounded bg-orange text-white">
                     {{ $t('cookies_table.got_it') }}
                 </button>
             </div>
@@ -58,7 +58,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)"
+                <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)" :id="'cookie-row-' +cookie.id"
                     class="alternate-color hover:bg-gray z-10">
                     <td class="px-4 py-2">
                         <span :id="'cookie-name-' +cookie.id">{{ cookie.name }}</span>
