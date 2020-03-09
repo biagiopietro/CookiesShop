@@ -17,7 +17,7 @@ class CookieTest extends DuskTestCase
                 ->visit('/')
                 ->click('a[href="/cookies"]')
                 ->waitForText(trans('cookies_table.name'))
-                ->assertPathIs('/cookies');
+                ->assertPathIs($browser->getCookiesUrl());
         });
     }
 
@@ -30,7 +30,7 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieSpritz) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', $cookieSpritz->name)
                 ->click('#buttonSearch')
                 ->waitForText($cookieSpritz->name)
@@ -48,9 +48,9 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieBiscotti) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieBiscotti->name)
                 ->assertSee($cookieBiscotti->name)
                 ->assertPresent('#pagination');
@@ -66,9 +66,9 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieBenneWafers) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieBenneWafers->name)
                 ->assertSee($cookieBenneWafers->name)
                 ->click('#cookie-row-151')
@@ -95,9 +95,9 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieBiscotti) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieBiscotti->name)
                 ->assertSee($cookieBiscotti->name)
                 ->click('#cookie-row-' . $cookieBiscotti->id)
@@ -118,9 +118,9 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieCandyCaneSnowball) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', $cookieCandyCaneSnowball->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieCandyCaneSnowball->name)
                 ->assertSee($cookieCandyCaneSnowball->name)
                 ->assertPresent('#cookie-veggie-' . $cookieCandyCaneSnowball->id)
@@ -137,9 +137,9 @@ class CookieTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($cookieCandyCaneSnowball) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', $cookieCandyCaneSnowball->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieCandyCaneSnowball->name)
                 ->assertSee($cookieCandyCaneSnowball->name)
                 ->assertPresent('#cookie-veggie-' . $cookieCandyCaneSnowball->id)
@@ -157,9 +157,9 @@ class CookieTest extends DuskTestCase
         // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($cookieBenneWafers, $cookieChocolateDippedCoconutMacaroons) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($cookieBenneWafers->name)
                 ->waitForText($cookieChocolateDippedCoconutMacaroons->name)
                 ->assertOrderingColumnSort(
@@ -182,9 +182,9 @@ class CookieTest extends DuskTestCase
         // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($cookieChocolateLebkuchen, $cookieChewyStrawberrySugar) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->click('#th-weight')
                 ->waitForText($cookieChewyStrawberrySugar->weight)
                 ->waitForText($cookieChocolateLebkuchen->weight)
@@ -208,9 +208,9 @@ class CookieTest extends DuskTestCase
         // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($cookieChocolateChip, $cookieChewyStrawberrySugar) {
             $browser
-                ->visit('/cookies')
+                ->visitCookies()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->click('#th-calories')
                 ->waitForText($cookieChewyStrawberrySugar->calories)
                 ->waitForText($cookieChocolateChip->calories)
