@@ -135,6 +135,13 @@ export default {
             "cookies": "Cookies",
             "ingredients": "Ingredients"
         },
+        "tooltip": {
+            "ascending": "ascending",
+            "descending": "descending",
+            "sort_current_page_result": "Sort current page results {ordering}",
+            "veggie": "Vegetarian",
+            "vegan": "Vegan"
+        },
         "pagination": {
             "previous": "&laquo; Previous",
             "next": "Next &raquo;"
@@ -169,6 +176,13 @@ export default {
         "navbar": {
             "cookies": "Biscotti",
             "ingredients": "Ingredienti"
+        },
+        "tooltip": {
+            "ascending": "crescente",
+            "descending": "decrescente",
+            "sort_current_page_result": "Ordina i risultati della pagina corrente in maniera {ordering}",
+            "veggie": "Vegetariano",
+            "vegan": "Vegano"
         },
         "ingredients_form": {
             "search_ingredients": "Cerca ingredienti..."
