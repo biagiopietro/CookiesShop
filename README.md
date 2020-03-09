@@ -172,11 +172,7 @@ You can run ```laravel dusk``` tests so you need to:
 - Start dusk tests: ```php artisan dusk``` .
 
 **Note**
-
-<br/>
-
 If you want to see the selected browser running the ```dusk``` tests you need to comment ```--disable-gpu``` and ```--headless``` in ```~/CookiesShop/tests/DuskTestCase.php```.
-
 <br/>
 
 For example:
@@ -198,6 +194,8 @@ For example:
         );
     }
 ```
+### Demo of Running Dusk Tests on Google Chrome
+![](docs/cookies_shop_dusk_tests.mp4)
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
