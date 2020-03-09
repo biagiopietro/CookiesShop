@@ -21,23 +21,27 @@ class CookieTest extends DuskTestCase
 
     public function testCookiesSearchBarSingleResult()
     {
-        $this->browse(function (Browser $browser) {
+        $cookieSpritz = Cookie::where("name",'Spritz')->first();
+
+        $this->browse(function (Browser $browser) use ($cookieSpritz) {
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
                 ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
-                ->type('search', 'Spritz')
+                ->type('search', $cookieSpritz->name)
                 ->click('#buttonSearch')
-                ->waitForText('Spritz')
-                ->assertSee('Spritz')
+                ->waitForText($cookieSpritz->name)
+                ->assertSee($cookieSpritz->name)
                 ->assertMissing('#pagination');
         });
     }
 
     public function testCookiesSearchBarMultipleResults()
     {
-        $this->browse(function (Browser $browser) {
+        $cookieBiscotti = Cookie::where("name",'Biscotti')->first();
+
+        $this->browse(function (Browser $browser) use ($cookieBiscotti) {
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
@@ -45,61 +49,62 @@ class CookieTest extends DuskTestCase
                 ->assertPathIs('/cookies')
                 ->type('search', '')
                 ->click('#buttonSearch')
-                ->waitForText('Biscotti')
-                ->assertSee('Biscotti')
+                ->waitForText($cookieBiscotti->name)
+                ->assertSee($cookieBiscotti->name)
                 ->assertPresent('#pagination');
         });
     }
 
     public function testCookieIngredients()
     {
-        $this->browse(function (Browser $browser) {
+        $cookieBenneWafers = Cookie::where("name",'Benne Wafers')->first();
+
+        $this->browse(function (Browser $browser) use ($cookieBenneWafers){
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
                 ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
                 ->type('search', '')
-                ->waitForText('Benne Wafers')
-                ->assertSee('Benne Wafers')
+                ->waitForText($cookieBenneWafers->name)
+                ->assertSee($cookieBenneWafers->name)
                 ->click('#cookie-row-151')
                 ->assertPresent('#modal-title')
-                ->waitForText('Benne Wafers')
-                ->assertSee('Benne Wafers')
+                ->waitForText($cookieBenneWafers->name)
+                ->assertSee($cookieBenneWafers->name)
                 ->assertSee('sesame seeds')
                 ->assertSee('butter')
                 ->assertSee('egg')
                 ->assertSee('vanilla')
                 ->assertSee('flour')
                 ->assertSee('salt')
-                ->assertSee('GOT IT')
+                ->assertSee(trans('cookies_table.got_it'))
                 ->click('#modal-got-it');
         });
     }
 
     public function testCookieWithoutIngredients()
     {
-        $this->browse(function (Browser $browser) {
+        $cookieBiscotti = Cookie::where("name",'Biscotti')->first();
+
+        $this->browse(function (Browser $browser) use ($cookieBiscotti){
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
                 ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
                 ->type('search', '')
-                ->waitForText('Biscotti')
-                ->assertSee('Biscotti')
-                ->click('#cookie-row-81')
+                ->waitForText($cookieBiscotti->name)
+                ->assertSee($cookieBiscotti->name)
+                ->click('#cookie-row-'.$cookieBiscotti->id)
                 ->assertPresent('#modal-title')
-                ->waitForText('Biscotti')
-                ->assertSee('Biscotti')
+                ->waitForText($cookieBiscotti->name)
+                ->assertSee($cookieBiscotti->name)
                 ->assertSee(trans('cookies_table.name'))
                 ->click('#modal-got-it');
         });
     }
 
-    /**
-     * @group now
-     */
     public function testCookieVeggieBadge()
     {
         $cookieCandyCaneSnowball = Cookie::where("name",'Candy Cane Snowball')->first();
