@@ -28,7 +28,7 @@
                 required: true
             },
             cookie_id: {
-                type: String,
+                type: Number,
                 required: true
             }
         },
