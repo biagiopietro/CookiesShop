@@ -352,3 +352,10 @@ cookie_recipes:
     ingredient_id: 37
   - cookie_id: 25
     ingredient_id: 38
+#
+  - cookie_id: 26
+    ingredient_id: 39
+  - cookie_id: 26
+    ingredient_id: 40
+  - cookie_id: 26
+    ingredient_id: 41
