@@ -27,7 +27,7 @@ Try it online [Cookies Shop](http://cookies-shop.herokuapp.com)!!!
 </a>
 
 ## Seed
-Each seeder loads all data from a ```yaml``` files inside  ```app/database/seeds/from_yaml/```.
+Each seeder loads all data from ```.yaml``` files inside  ```app/database/seeds/from_yaml``` folder.
 
 ### Cookies Seeder
 The ```CookiesTableSeeder.php``` loads the cookies data from ```app/database/seeds/from_yaml/cookies.yaml``` and each ```cookie``` has this structure:
@@ -132,6 +132,7 @@ cookie_recipes:
     .
 ```
 <br/>
+
 If you take care about the ```id``` of each row you need to change the ```insertCookieRecipe``` method inside the ```CookieRecipesTableSeeder.php``` 
 <br/>
 From:
