@@ -10707,7 +10707,7 @@ var staticRenderFns = [
       "a",
       {
         staticClass: "block px-2 py-1 text-white rounded hover:bg-red-40 ",
-        attrs: { id: "it", href: "/" }
+        attrs: { id: "it", href: "/it" }
       },
       [_c("span", { staticClass: "flag-icon flag-icon-it" })]
     )
