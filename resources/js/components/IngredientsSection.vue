@@ -13,6 +13,7 @@
                 <thead>
                 <tr>
                     <custom-th
+                        :id="'th-name'"
                         :content="$t('ingredients_table.name')"
                         :currentSort="'name'"
                         :isColumnNumbered="false">

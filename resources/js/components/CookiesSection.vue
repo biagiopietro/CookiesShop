@@ -41,35 +41,38 @@
                 <thead>
                 <tr>
                     <custom-th
+                        :id="'th-name'"
                         :content="$t('cookies_table.name')"
                         :currentSort="'name'"
                         :isColumnNumbered="false">
                     </custom-th>
                     <custom-th
+                        :id="'th-weight'"
                         :content="$t('cookies_table.weight')"
                         :currentSort="'weight'"
                         :isColumnNumbered="true">
                     </custom-th>
                     <custom-th
+                        :id="'th-calories'"
                         :content="$t('cookies_table.calories')"
                         :currentSort="'calories'"
                         :isColumnNumbered="true">
                     </custom-th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)" :id="'cookie-row-' +cookie.id"
-                    class="alternate-color hover:bg-gray z-10">
-                    <td class="px-4 py-2">
-                        <span :id="'cookie-name-' + cookie.id">{{ cookie.name }}</span>
-                        <vegan-veggie-badge :cookie_id="cookie.id"
-                                            :is_veggie="cookie.is_veggie"
-                                            :is_vegan="cookie.is_vegan">
-                        </vegan-veggie-badge>
-                    </td>
-                    <td class="text-center px-4 py-2">{{ cookie.weight }}</td>
-                    <td class="text-center px-4 py-2">{{ cookie.calories }}</td>
-                </tr>
+                <tbody class="cookie-rows">
+                    <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)" :id="'cookie-row-' +cookie.id"
+                        class="alternate-color hover:bg-gray z-10">
+                        <td class=" px-4 py-2">
+                            <span :id="'cookie-name-' + cookie.id">{{ cookie.name }}</span>
+                            <vegan-veggie-badge :cookie_id="cookie.id"
+                                                :is_veggie="cookie.is_veggie"
+                                                :is_vegan="cookie.is_vegan">
+                            </vegan-veggie-badge>
+                        </td>
+                        <td class="text-center px-4 py-2">{{ cookie.weight }}</td>
+                        <td class="text-center px-4 py-2">{{ cookie.calories }}</td>
+                    </tr>
                 </tbody>
             </table>
             <pagination :id="'pagination'" :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>

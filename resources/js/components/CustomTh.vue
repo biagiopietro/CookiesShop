@@ -1,5 +1,5 @@
 <template>
-    <th class="px-4 py-2 bg-red text-white" v-on:click="sort(currentSort)">
+    <th :id="id" class="px-4 py-2 bg-red text-white" v-on:click="sort(currentSort)">
         <div class="flex justify-center">
             {{ content }}
             <order-icon
@@ -24,7 +24,11 @@
             isColumnNumbered: {
                 type: Boolean,
                 required: true
-            }
+            },
+            id: {
+                type: String,
+                required: true
+            },
 
         },
         data: function () {
