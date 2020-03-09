@@ -151,3 +151,15 @@ ingredients:
     name: cranberries
     is_veggie: true
     is_vegan: true
+  - id: 39
+    name: coconut flour
+    is_veggie: true
+    is_vegan: true
+  - id: 40
+    name: cashew butter
+    is_veggie: true
+    is_vegan: true
+  - id: 41
+    name: maple syrup
+    is_veggie: true
+    is_vegan: true
