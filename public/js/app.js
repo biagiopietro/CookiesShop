@@ -628,6 +628,13 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    getAscDescStringFormatted: function getAscDescStringFormatted() {
+      if (this.getColumnCurrentSortDir() === 'asc') {
+        return this.$t('tooltip.descending');
+      }
+
+      return this.$t('tooltip.ascending');
+    },
     getColumnCurrentSort: function getColumnCurrentSort() {
       return this.$parent.getColumnCurrentSort();
     },
@@ -10753,7 +10760,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "tooltip" }, [
     _vm.getColumnCurrentSortDir() !== "asc" &&
     _vm.getColumnCurrentSort() === this.currentSort
       ? _c("div", [
@@ -10833,7 +10840,17 @@ var render = function() {
                   ]
                 )
               ])
-        ])
+        ]),
+    _vm._v(" "),
+    _c("span", { staticClass: "tooltiptext" }, [
+      _vm._v(
+        _vm._s(
+          _vm.$t("tooltip.sort_current_page_result", {
+            ordering: _vm.getAscDescStringFormatted()
+          })
+        )
+      )
+    ])
   ])
 }
 var staticRenderFns = []
@@ -11041,7 +11058,7 @@ var render = function() {
           [
             _vm._v("\n        v\n        "),
             _c("span", { staticClass: "tooltiptext" }, [
-              _vm._v(_vm._s(_vm.$t("ingredients_table.is_veggie")))
+              _vm._v(_vm._s(_vm.$t("tooltip.veggie")))
             ])
           ]
         )
@@ -11058,7 +11075,7 @@ var render = function() {
           [
             _vm._v("\n        v\n        "),
             _c("span", { staticClass: "tooltiptext" }, [
-              _vm._v(_vm._s(_vm.$t("ingredients_table.is_vegan")))
+              _vm._v(_vm._s(_vm.$t("tooltip.vegan")))
             ])
           ]
         )
@@ -11072,7 +11089,7 @@ var render = function() {
           [
             _vm._v("\n        v\n        "),
             _c("span", { staticClass: "tooltiptext" }, [
-              _vm._v(_vm._s(_vm.$t("ingredients_table.is_vegan")))
+              _vm._v(_vm._s(_vm.$t("tooltip.vegan")))
             ])
           ]
         )
@@ -25989,6 +26006,13 @@ __webpack_require__.r(__webpack_exports__);
       "cookies": "Cookies",
       "ingredients": "Ingredients"
     },
+    "tooltip": {
+      "ascending": "ascending",
+      "descending": "descending",
+      "sort_current_page_result": "Sort current page results {ordering}",
+      "veggie": "Vegetarian",
+      "vegan": "Vegan"
+    },
     "pagination": {
       "previous": "&laquo; Previous",
       "next": "Next &raquo;"
@@ -26023,6 +26047,13 @@ __webpack_require__.r(__webpack_exports__);
     "navbar": {
       "cookies": "Biscotti",
       "ingredients": "Ingredienti"
+    },
+    "tooltip": {
+      "ascending": "crescente",
+      "descending": "decrescente",
+      "sort_current_page_result": "Ordina i risultati della pagina corrente in maniera {ordering}",
+      "veggie": "Vegetariano",
+      "vegan": "Vegano"
     },
     "ingredients_form": {
       "search_ingredients": "Cerca ingredienti..."
