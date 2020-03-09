@@ -21,6 +21,9 @@ class CookieTest extends DuskTestCase
         });
     }
 
+    /**
+     * @group search
+     */
     public function testCookiesSearchBarSingleResult()
     {
         $cookieSpritz = Cookie::where("name", 'Spritz')->first();
@@ -36,6 +39,9 @@ class CookieTest extends DuskTestCase
         });
     }
 
+    /**
+     * @group search
+     */
     public function testCookiesSearchBarMultipleResults()
     {
         $cookieBiscotti = Cookie::where("name", 'Biscotti')->first();
@@ -51,6 +57,9 @@ class CookieTest extends DuskTestCase
         });
     }
 
+    /**
+     * @group cookie_ingredients
+     */
     public function testCookieIngredients()
     {
         $cookieBenneWafers = Cookie::where("name", 'Benne Wafers')->first();
@@ -76,7 +85,9 @@ class CookieTest extends DuskTestCase
                 ->click('#modal-got-it');
         });
     }
-
+    /**
+     * @group cookie_ingredients
+     */
     public function testCookieWithoutIngredients()
     {
         $cookieBiscotti = Cookie::where("name", 'Biscotti')->first();
@@ -97,6 +108,9 @@ class CookieTest extends DuskTestCase
         });
     }
 
+    /**
+     * @group badge
+     */
     public function testCookieOnlyVeggieBadge()
     {
         $cookieCandyCaneSnowball = Cookie::where("name", 'Candy Cane Snowball')->first();
@@ -113,6 +127,9 @@ class CookieTest extends DuskTestCase
         });
     }
 
+    /**
+     * @group badge
+     */
     public function testCookieVeggieVeganBadge()
     {
         $cookieCandyCaneSnowball = Cookie::where("name", 'Vegan Unicorn')->first();
