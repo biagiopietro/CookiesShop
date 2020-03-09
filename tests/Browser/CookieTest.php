@@ -136,7 +136,7 @@ class CookieTest extends DuskTestCase
     {
         $cookieBenneWafers = Cookie::where("name", 'Benne Wafers')->first();
         $cookieChocolateDippedCoconutMacaroons = Cookie::where("name", 'Chocolate-Dipped Coconut Macaroons')->first();
-
+        // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($cookieBenneWafers, $cookieChocolateDippedCoconutMacaroons) {
             $browser
                 ->visit('/cookies')
@@ -161,7 +161,6 @@ class CookieTest extends DuskTestCase
     {
         $cookieChocolateLebkuchen = Cookie::where("name", 'Chocolate Lebkuchen')->first();
         $cookieChewyStrawberrySugar = Cookie::where("name", 'Chewy Strawberry Sugar')->first();
-
         // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($cookieChocolateLebkuchen, $cookieChewyStrawberrySugar) {
             $browser
@@ -177,6 +176,32 @@ class CookieTest extends DuskTestCase
                     '#th-weight',
                     $cookieChewyStrawberrySugar->weight,
                     $cookieChocolateLebkuchen->weight);
+
+        });
+    }
+
+    /**
+     * @group sort
+     */
+    public function testCookiesColumnCaloriesSort()
+    {
+        $cookieChocolateChip = Cookie::where("name", 'Chocolate Chip')->first();
+        $cookieChewyStrawberrySugar = Cookie::where("name", 'Chewy Strawberry Sugar')->first();
+        // CustomDuskBrowser is typehidden
+        $this->browse(function (Browser $browser) use ($cookieChocolateChip, $cookieChewyStrawberrySugar) {
+            $browser
+                ->visit('/cookies')
+                ->type('search', '')
+                ->click('#buttonSearch')
+                ->click('#th-calories')
+                ->waitForText($cookieChewyStrawberrySugar->calories)
+                ->waitForText($cookieChocolateChip->calories)
+                ->assertOrderingColumnSort(
+                    '.table-auto',
+                    '.cookie-calories',
+                    '#th-calories',
+                    $cookieChocolateChip->calories,
+                    $cookieChewyStrawberrySugar->calories);
 
         });
     }
