@@ -218,6 +218,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -760,6 +761,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     is_veggie: {
       type: Boolean,
+      required: true
+    },
+    cookie_id: {
+      type: String,
       required: true
     }
   }
@@ -10338,6 +10343,7 @@ var render = function() {
                         _vm._v(" "),
                         _c("vegan-veggie-badge", {
                           attrs: {
+                            cookie_id: cookie.id,
                             is_veggie: cookie.is_veggie,
                             is_vegan: cookie.is_vegan
                           }
@@ -11016,7 +11022,8 @@ var render = function() {
           "button",
           {
             staticClass:
-              "tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-10"
+              "tooltip text-white rounded-6 bg-green-900 w-6 h-6 z-10",
+            attrs: { id: "cookie-veggie-" + _vm.cookie_id }
           },
           [
             _vm._v("\n        v\n        "),
@@ -11032,7 +11039,8 @@ var render = function() {
           "button",
           {
             staticClass:
-              "tooltip text-white rounded-6 bg-cyan w-6 h-6 ml--2 z-0"
+              "tooltip text-white rounded-6 bg-cyan w-6 h-6 ml--2 z-0",
+            attrs: { id: "cookie-vegan-" + _vm.cookie_id }
           },
           [
             _vm._v("\n        v\n        "),
@@ -11044,7 +11052,10 @@ var render = function() {
       : _vm.is_vegan
       ? _c(
           "button",
-          { staticClass: "tooltip text-white rounded-6 bg-cyan w-6 h-6 z-0" },
+          {
+            staticClass: "tooltip text-white rounded-6 bg-cyan w-6 h-6 z-0",
+            attrs: { id: "cookie-vegan-" + _vm.cookie_id }
+          },
           [
             _vm._v("\n        v\n        "),
             _c("span", { staticClass: "tooltiptext" }, [
