@@ -9,29 +9,29 @@ cookies:
     weight: 10
     calories: 347
   - id: 3
-    name: Oatmeal Raisin
-    weight: 8.8
-    calories: 218
-  - id: 4
     name: Gingersnaps
     weight: 4.8
     calories: 105
-  - id: 5
+  - id: 4
     name: Shortbread
     weight: 7.8
     calories: 111
-  - id: 6
+  - id: 5
     name: Peanut Butter
     weight: 13.6
     calories: 252
-  - id: 7
+  - id: 6
     name: Gingerbread Whoopie Pies
     weight: 17.5
     calories: 423
-  - id: 8
-    name: Chewy Straberry Sugar
+  - id: 7 #ok missing salt
+    name: Chewy Strawberry Sugar
     weight: 14
     calories: 86
+  - id: 8
+    name: Oatmeal Raisin
+    weight: 8.8
+    calories: 218
   - id: 9
     name: Biscotti
     weight: 7.8
