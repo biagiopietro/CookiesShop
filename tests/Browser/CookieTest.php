@@ -145,8 +145,15 @@ class CookieTest extends DuskTestCase
                 ->type('search', '')
                 ->click('#buttonSearch')
                 ->waitForText($cookieBenneWafers->name)
-                ->waitForText($cookieChocolateDippedCoconutMacaroons->name)
-                ->click('#th-name');
+                ->waitForText($cookieChocolateDippedCoconutMacaroons->name);
+
+            $html = $browser->element('.table-auto')->getAttribute('innerHTML');
+            $crawler = new Crawler($html);
+
+            $this->seeInFirstElement('.cookie-row', $cookieBenneWafers->name, $crawler);
+            $this->seeInLastElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
+
+            $browser->click('#th-name');
 
             $html = $browser->element('.table-auto')->getAttribute('innerHTML');
             $crawler = new Crawler($html);

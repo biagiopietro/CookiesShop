@@ -10512,12 +10512,9 @@ var render = function() {
             _vm._l(_vm.sortedIngredients, function(ingredient) {
               return _c(
                 "tr",
-                {
-                  staticClass:
-                    "ingredient-row alternate-color hover:bg-gray z-10"
-                },
+                { staticClass: "alternate-color hover:bg-gray z-10" },
                 [
-                  _c("td", { staticClass: "px-4 py-2" }, [
+                  _c("td", { staticClass: "ingredient-row px-4 py-2" }, [
                     _vm._v(_vm._s(ingredient.name))
                   ]),
                   _vm._v(" "),
