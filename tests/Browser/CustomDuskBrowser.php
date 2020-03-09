@@ -16,12 +16,22 @@ class CustomDuskBrowser extends Browser
 
     public function visitCookies()
     {
-        return $this->visit('/cookies');
+        return $this->visit($this->getCookiesUrl());
     }
 
     public function visitIngredients()
     {
-        return $this->visit('/ingredients');
+        return $this->visit($this->getIngredientsUrl());
+    }
+
+    public function getCookiesUrl()
+    {
+        return '/cookies';
+    }
+
+    public function getIngredientsUrl()
+    {
+        return '/ingredients';
     }
 
     public function seeInFirstElement($selector, $text, $crawler)
