@@ -444,6 +444,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -734,6 +738,14 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     show: {
       type: Boolean,
+      required: true
+    },
+    ingredientId: {
+      type: Number,
+      required: true
+    },
+    columnName: {
+      type: String,
       required: true
     }
   }
@@ -10525,16 +10537,20 @@ var render = function() {
                 "tr",
                 { staticClass: "alternate-color hover:bg-gray z-10" },
                 [
-                  _c("td", { staticClass: "ingredient-row px-4 py-2" }, [
+                  _c("td", { staticClass: "ingredient-name px-4 py-2" }, [
                     _vm._v(_vm._s(ingredient.name))
                   ]),
                   _vm._v(" "),
                   _c(
                     "td",
-                    { staticClass: "text-center px-4 py-2" },
+                    { staticClass: "ingredient-veggie text-center px-4 py-2" },
                     [
                       _c("tick-cross", {
-                        attrs: { show: ingredient.is_veggie }
+                        attrs: {
+                          ingredientId: ingredient.id,
+                          columnName: "veggie",
+                          show: ingredient.is_veggie
+                        }
                       })
                     ],
                     1
@@ -10542,9 +10558,15 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "td",
-                    { staticClass: "text-center px-4 py-2" },
+                    { staticClass: "ingredient-vegan text-center px-4 py-2" },
                     [
-                      _c("tick-cross", { attrs: { show: ingredient.is_vegan } })
+                      _c("tick-cross", {
+                        attrs: {
+                          ingredientId: ingredient.id,
+                          columnName: "vegan",
+                          show: ingredient.is_vegan
+                        }
+                      })
                     ],
                     1
                   )
@@ -10991,41 +11013,57 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "flex justify-center" }, [
     _vm.show === true
-      ? _c("div", [
-          _c(
-            "svg",
-            {
-              staticStyle: { width: "24px", height: "24px" },
-              attrs: { viewBox: "0 0 24 24" }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  fill: "green",
-                  d: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
-                }
-              })
-            ]
-          )
-        ])
-      : _c("div", [
-          _c(
-            "svg",
-            {
-              staticStyle: { width: "24px", height: "24px" },
-              attrs: { viewBox: "0 0 24 24" }
-            },
-            [
-              _c("path", {
-                attrs: {
-                  fill: "red",
-                  d:
-                    "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
-                }
-              })
-            ]
-          )
-        ])
+      ? _c(
+          "div",
+          {
+            attrs: {
+              id: "ingredient-tick-" + _vm.columnName + "-" + _vm.ingredientId
+            }
+          },
+          [
+            _c(
+              "svg",
+              {
+                staticStyle: { width: "24px", height: "24px" },
+                attrs: { viewBox: "0 0 24 24" }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "green",
+                    d: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"
+                  }
+                })
+              ]
+            )
+          ]
+        )
+      : _c(
+          "div",
+          {
+            attrs: {
+              id: "ingredient-cross-" + _vm.columnName + "-" + _vm.ingredientId
+            }
+          },
+          [
+            _c(
+              "svg",
+              {
+                staticStyle: { width: "24px", height: "24px" },
+                attrs: { viewBox: "0 0 24 24" }
+              },
+              [
+                _c("path", {
+                  attrs: {
+                    fill: "red",
+                    d:
+                      "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"
+                  }
+                })
+              ]
+            )
+          ]
+        )
   ])
 }
 var staticRenderFns = []

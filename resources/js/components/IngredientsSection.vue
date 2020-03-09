@@ -25,12 +25,16 @@
                 <tbody>
                 <tr v-for="ingredient in sortedIngredients"
                     class="alternate-color hover:bg-gray z-10">
-                    <td class="ingredient-row px-4 py-2">{{ ingredient.name }}</td>
-                    <td class="text-center px-4 py-2">
-                        <tick-cross :show="ingredient.is_veggie"></tick-cross>
+                    <td class="ingredient-name px-4 py-2">{{ ingredient.name }}</td>
+                    <td class="ingredient-veggie text-center px-4 py-2">
+                        <tick-cross :ingredientId="ingredient.id"
+                                    :columnName="'veggie'"
+                                    :show="ingredient.is_veggie"></tick-cross>
                     </td>
-                    <td class="text-center px-4 py-2">
-                        <tick-cross :show="ingredient.is_vegan"></tick-cross>
+                    <td class="ingredient-vegan text-center px-4 py-2">
+                        <tick-cross :ingredientId="ingredient.id"
+                                    :columnName="'vegan'"
+                                    :show="ingredient.is_vegan"></tick-cross>
                     </td>
                 </tr>
                 </tbody>
