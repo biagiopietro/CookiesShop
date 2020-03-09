@@ -8,6 +8,22 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class CustomDuskBrowser extends Browser
 {
+
+    public function clickSearch()
+    {
+        return $this->click('#buttonSearch');
+    }
+
+    public function visitCookies()
+    {
+        return $this->visit('/cookies');
+    }
+
+    public function visitIngredients()
+    {
+        return $this->visit('/ingredients');
+    }
+
     public function seeInFirstElement($selector, $text, $crawler)
     {
        PHPUnit::assertStringContainsString($text, trim($crawler->filter($selector)->first()->text()));
