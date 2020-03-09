@@ -85,6 +85,7 @@ class CookieTest extends DuskTestCase
                 ->click('#modal-got-it');
         });
     }
+
     /**
      * @group cookie_ingredients
      */
