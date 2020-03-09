@@ -219,6 +219,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -349,6 +352,10 @@ __webpack_require__.r(__webpack_exports__);
     isColumnNumbered: {
       type: Boolean,
       required: true
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
   data: function data() {
@@ -394,6 +401,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tailwind-modal */ "./node_modules/vue-tailwind-modal/dist/vue-tailwind-modal.common.js");
 /* harmony import */ var vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -764,7 +772,7 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     cookie_id: {
-      type: String,
+      type: Number,
       required: true
     }
   }
@@ -10290,6 +10298,7 @@ var render = function() {
                 [
                   _c("custom-th", {
                     attrs: {
+                      id: "th-name",
                       content: _vm.$t("cookies_table.name"),
                       currentSort: "name",
                       isColumnNumbered: false
@@ -10298,6 +10307,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
+                      id: "th-weight",
                       content: _vm.$t("cookies_table.weight"),
                       currentSort: "weight",
                       isColumnNumbered: true
@@ -10306,6 +10316,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("custom-th", {
                     attrs: {
+                      id: "th-calories",
                       content: _vm.$t("cookies_table.calories"),
                       currentSort: "calories",
                       isColumnNumbered: true
@@ -10318,6 +10329,7 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
+              { staticClass: "cookie-rows" },
               _vm._l(_vm.sortedCookies, function(cookie) {
                 return _c(
                   "tr",
@@ -10333,7 +10345,7 @@ var render = function() {
                   [
                     _c(
                       "td",
-                      { staticClass: "px-4 py-2" },
+                      { staticClass: " px-4 py-2" },
                       [
                         _c(
                           "span",
@@ -10403,6 +10415,7 @@ var render = function() {
     "th",
     {
       staticClass: "px-4 py-2 bg-red text-white",
+      attrs: { id: _vm.id },
       on: {
         click: function($event) {
           return _vm.sort(_vm.currentSort)
@@ -10476,6 +10489,7 @@ var render = function() {
               [
                 _c("custom-th", {
                   attrs: {
+                    id: "th-name",
                     content: _vm.$t("ingredients_table.name"),
                     currentSort: "name",
                     isColumnNumbered: false
