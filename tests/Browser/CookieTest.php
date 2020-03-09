@@ -2,7 +2,7 @@
 
 namespace Tests\Browser;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use App\Cookie;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -83,7 +83,7 @@ class CookieTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->click('a[href="/cookies"]')
-                ->waitForText(trans('cookies_table.name', [], 'en'))
+                ->waitForText(trans('cookies_table.name'))
                 ->assertPathIs('/cookies')
                 ->type('search', '')
                 ->waitForText('Biscotti')
@@ -94,6 +94,27 @@ class CookieTest extends DuskTestCase
                 ->assertSee('Biscotti')
                 ->assertSee(trans('cookies_table.name'))
                 ->click('#modal-got-it');
+        });
+    }
+
+    /**
+     * @group now
+     */
+    public function testCookieVeggieBadge()
+    {
+        $cookieCandyCaneSnowball = Cookie::where("name",'Candy Cane Snowball')->first();
+
+        $this->browse(function (Browser $browser) use ($cookieCandyCaneSnowball){
+            $browser
+                ->visit('/')
+                ->click('a[href="/cookies"]')
+                ->waitForText(trans('cookies_table.name'))
+                ->assertPathIs('/cookies')
+                ->type('search', $cookieCandyCaneSnowball->name)
+                ->waitForText($cookieCandyCaneSnowball->name)
+                ->assertSee($cookieCandyCaneSnowball->name)
+                ->assertPresent('#cookie-veggie-'.$cookieCandyCaneSnowball->id)
+                ->assertMissing('#cookie-vegan-'.$cookieCandyCaneSnowball->id);
         });
     }
 
