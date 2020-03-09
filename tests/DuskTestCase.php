@@ -6,10 +6,16 @@ use Facebook\WebDriver\Chrome\ChromeOptions;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Laravel\Dusk\TestCase as BaseTestCase;
+use Tests\Browser\CustomDuskBrowser;
 
 abstract class DuskTestCase extends BaseTestCase
 {
     use CreatesApplication;
+
+    protected function newBrowser($driver)
+    {
+        return new CustomDuskBrowser($driver);
+    }
 
     /**
      * Prepare for Dusk test execution.
