@@ -172,9 +172,13 @@ You can run ```laravel dusk``` tests so you need to:
 - Start dusk tests: ```php artisan dusk``` .
 
 **Note**
+
 <br/>
+
 If you want to see the selected browser running the ```dusk``` tests you need to comment ```--disable-gpu``` and ```--headless``` in ```~/CookiesShop/tests/DuskTestCase.php```.
+
 <br/>
+
 For example:
 ```php
     protected function driver()
