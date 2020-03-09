@@ -12,8 +12,8 @@ class LanguageTest extends DuskTestCase
     public function testItalianLanguage()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/it')
-                ->waitFor("",10)
+            $browser->visit('/')
+                ->click('#it')
                 ->assertSee(trans('navbar.ingredients',[],'it'))
                 ->assertDontSee(trans('navbar.ingredients',[],'en'));
         });
@@ -22,7 +22,8 @@ class LanguageTest extends DuskTestCase
     public function testEnglishLanguage()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/en')
+            $browser->visit('/')
+                ->click('#en')
                 ->assertSee(trans('navbar.cookies',[],'en'))
                 ->assertDontSee(trans('navbar.cookies',[],'it'));
         });
