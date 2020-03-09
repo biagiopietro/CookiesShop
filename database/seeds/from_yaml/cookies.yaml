@@ -24,7 +24,7 @@ cookies:
     name: Gingerbread Whoopie Pies
     weight: 17.5
     calories: 423
-  - id: 7 #ok missing salt
+  - id: 7
     name: Chewy Strawberry Sugar
     weight: 14
     calories: 86
