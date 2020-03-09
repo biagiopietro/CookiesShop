@@ -10351,7 +10351,7 @@ var render = function() {
                   [
                     _c(
                       "td",
-                      { staticClass: "cookie-row px-4 py-2" },
+                      { staticClass: "cookie-name px-4 py-2" },
                       [
                         _c(
                           "span",
@@ -10370,13 +10370,17 @@ var render = function() {
                       1
                     ),
                     _vm._v(" "),
-                    _c("td", { staticClass: "text-center px-4 py-2" }, [
-                      _vm._v(_vm._s(cookie.weight))
-                    ]),
+                    _c(
+                      "td",
+                      { staticClass: "cookie-weight text-center px-4 py-2" },
+                      [_vm._v(_vm._s(cookie.weight))]
+                    ),
                     _vm._v(" "),
-                    _c("td", { staticClass: "text-center px-4 py-2" }, [
-                      _vm._v(_vm._s(cookie.calories))
-                    ])
+                    _c(
+                      "td",
+                      { staticClass: "cookie-calories text-center px-4 py-2" },
+                      [_vm._v(_vm._s(cookie.calories))]
+                    )
                   ]
                 )
               }),

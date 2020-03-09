@@ -130,7 +130,7 @@ class CookieTest extends DuskTestCase
     }
 
     /**
-     * @group now
+     * @group sort
      */
     public function testCookiesColumnNameSort()
     {
@@ -143,21 +143,40 @@ class CookieTest extends DuskTestCase
                 ->type('search', '')
                 ->click('#buttonSearch')
                 ->waitForText($cookieBenneWafers->name)
-                ->waitForText($cookieChocolateDippedCoconutMacaroons->name);
+                ->waitForText($cookieChocolateDippedCoconutMacaroons->name)
+                ->assertOrderingColumnSort(
+                    '.table-auto',
+                    '.cookie-name',
+                    '#th-name',
+                    $cookieBenneWafers->name,
+                    $cookieChocolateDippedCoconutMacaroons->name);
 
-            $html = $browser->element('.table-auto')->getAttribute('innerHTML');
-            $crawler = new Crawler($html);
+        });
+    }
 
-            $browser->seeInFirstElement('.cookie-row', $cookieBenneWafers->name, $crawler);
-            $browser->seeInLastElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
+    /**
+     * @group sort
+     */
+    public function testCookiesColumnWeightSort()
+    {
+        $cookieChocolateLebkuchen = Cookie::where("name", 'Chocolate Lebkuchen')->first();
+        $cookieChewyStrawberrySugar = Cookie::where("name", 'Chewy Strawberry Sugar')->first();
 
-            $browser->click('#th-name');
-
-            $html = $browser->element('.table-auto')->getAttribute('innerHTML');
-            $crawler = new Crawler($html);
-
-            $browser->seeInFirstElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
-            $browser->seeInLastElement('.cookie-row', $cookieBenneWafers->name, $crawler);
+        // CustomDuskBrowser is typehidden
+        $this->browse(function (Browser $browser) use ($cookieChocolateLebkuchen, $cookieChewyStrawberrySugar) {
+            $browser
+                ->visit('/cookies')
+                ->type('search', '')
+                ->click('#buttonSearch')
+                ->click('#th-weight')
+                ->waitForText($cookieChewyStrawberrySugar->weight)
+                ->waitForText($cookieChocolateLebkuchen->weight)
+                ->assertOrderingColumnSort(
+                    '.table-auto',
+                    '.cookie-weight',
+                    '#th-weight',
+                    $cookieChewyStrawberrySugar->weight,
+                    $cookieChocolateLebkuchen->weight);
 
         });
     }
