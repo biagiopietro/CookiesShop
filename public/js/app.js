@@ -10329,7 +10329,6 @@ var render = function() {
             _vm._v(" "),
             _c(
               "tbody",
-              { staticClass: "cookie-rows" },
               _vm._l(_vm.sortedCookies, function(cookie) {
                 return _c(
                   "tr",
@@ -10345,7 +10344,7 @@ var render = function() {
                   [
                     _c(
                       "td",
-                      { staticClass: " px-4 py-2" },
+                      { staticClass: "cookie-row px-4 py-2" },
                       [
                         _c(
                           "span",
@@ -10513,7 +10512,10 @@ var render = function() {
             _vm._l(_vm.sortedIngredients, function(ingredient) {
               return _c(
                 "tr",
-                { staticClass: "alternate-color hover:bg-gray z-10" },
+                {
+                  staticClass:
+                    "ingredient-row alternate-color hover:bg-gray z-10"
+                },
                 [
                   _c("td", { staticClass: "px-4 py-2" }, [
                     _vm._v(_vm._s(ingredient.name))
