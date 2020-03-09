@@ -3,7 +3,6 @@
 namespace Tests\Browser;
 
 use App\Cookie;
-use http\Client;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 use Symfony\Component\DomCrawler\Crawler;
@@ -131,11 +130,10 @@ class CookieTest extends DuskTestCase
     }
 
     /**
-     * @group test
+     * @group now
      */
     public function testCookiesColumnNameSort()
     {
-
         $cookieBenneWafers = Cookie::where("name", 'Benne Wafers')->first();
         $cookieChocolateDippedCoconutMacaroons = Cookie::where("name", 'Chocolate-Dipped Coconut Macaroons')->first();
 
@@ -150,29 +148,18 @@ class CookieTest extends DuskTestCase
             $html = $browser->element('.table-auto')->getAttribute('innerHTML');
             $crawler = new Crawler($html);
 
-            $this->seeInFirstElement('.cookie-row', $cookieBenneWafers->name, $crawler);
-            $this->seeInLastElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
+            $browser->seeInFirstElement('.cookie-row', $cookieBenneWafers->name, $crawler);
+            $browser->seeInLastElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
 
             $browser->click('#th-name');
 
             $html = $browser->element('.table-auto')->getAttribute('innerHTML');
             $crawler = new Crawler($html);
 
-            $this->seeInFirstElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
-            $this->seeInLastElement('.cookie-row', $cookieBenneWafers->name, $crawler);
+            $browser->seeInFirstElement('.cookie-row', $cookieChocolateDippedCoconutMacaroons->name, $crawler);
+            $browser->seeInLastElement('.cookie-row', $cookieBenneWafers->name, $crawler);
 
         });
     }
 
-    public function seeInFirstElement($selector, $text, $crawler)
-    {
-        $this->assertStringContainsString($text, trim($crawler->filter($selector)->first()->text()));
-        return $this;
-    }
-
-    public function seeInLastElement($selector, $text, $crawler)
-    {
-        $this->assertStringContainsString($text, trim($crawler->filter($selector)->last()->text()));
-        return $this;
-    }
 }
