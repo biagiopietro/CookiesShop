@@ -15,8 +15,8 @@ class IngredientTest extends DuskTestCase
             $browser
                 ->visit('/')
                 ->click('a[href="/ingredients"]')
-                ->waitForText(trans('ingredients_table.name', [], 'en'))
-                ->assertPathIs('/ingredients');
+                ->waitForText(trans('ingredients_table.name'))
+                ->assertPathIs($browser->getIngredientsUrl());
         });
     }
 
@@ -29,9 +29,9 @@ class IngredientTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($ingredientSalt) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', $ingredientSalt->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientSalt->name)
                 ->assertSee($ingredientSalt->name)
                 ->assertMissing('#pagination');
@@ -47,9 +47,9 @@ class IngredientTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($ingredientAnise) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientAnise->name)
                 ->assertSee($ingredientAnise->name)
                 ->assertPresent('#pagination');
@@ -66,9 +66,9 @@ class IngredientTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($ingredientButter) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', $ingredientButter->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientButter->name)
                 ->assertSee($ingredientButter->name)
                 ->assertPresent('#ingredient-tick-veggie-' . $ingredientButter->id)
@@ -86,9 +86,9 @@ class IngredientTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($ingredientBacon) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', $ingredientBacon->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientBacon->name)
                 ->assertSee($ingredientBacon->name)
                 ->assertPresent('#ingredient-cross-veggie-' . $ingredientBacon->id)
@@ -105,9 +105,9 @@ class IngredientTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($ingredientAnise) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', $ingredientAnise->name)
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientAnise->name)
                 ->assertSee($ingredientAnise->name)
                 ->assertPresent('#ingredient-tick-veggie-' . $ingredientAnise->id)
@@ -126,9 +126,9 @@ class IngredientTest extends DuskTestCase
         // CustomDuskBrowser is typehidden
         $this->browse(function (Browser $browser) use ($ingredientAnise, $ingredientChocolate) {
             $browser
-                ->visit('/ingredients')
+                ->visitIngredients()
                 ->type('search', '')
-                ->click('#buttonSearch')
+                ->clickSearch()
                 ->waitForText($ingredientAnise->name)
                 ->waitForText($ingredientChocolate->name)
                 ->assertOrderingColumnSort(
