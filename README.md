@@ -216,13 +216,6 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
 - Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
 - Run ```docker build . -t  cookie_shop```;
 - Make sure that the image is created, so run ```docker images | grep cookie_shop```;
-- Run ``` docker run -it -p8000:80 --network=host cookie_shop ``` to run the docker image;
-
-**IMPORTANT**
-<br/>
-The flag ```--network=host``` needs to share the ```host``` network with the container.
-<br/>
-In this way i can able to connect the laravel application running in the container with the ```Mysql``` database inside  my ```local``` machine.
 
 **Note**
 <br/>
@@ -236,6 +229,15 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
         && docker-php-ext-install mysqli pdo pdo_mysql redis \
         && a2enmod rewrite
 ```
+
+### Run
+- Run ``` docker run -it -p8000:80 --network=host cookie_shop ``` to run the docker image;
+
+**IMPORTANT**
+<br/>
+The flag ```--network=host``` needs to share the ```host``` network with the container.
+<br/>
+In this way i can able to connect the laravel application running in the container with the ```Mysql``` database inside  my ```local``` machine.
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
