@@ -18,7 +18,7 @@ class CookieTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function testCookiesSearchSprizCookie()
+    public function testCookiesSearchSpritzCookie()
     {
         $response = $this->withHeaders([
             'Accept' => '*/json',
@@ -40,12 +40,12 @@ class CookieTest extends TestCase
                             "is_vegan" => false
                     ]
                 ],
-                "first_page_url" => "http://localhost/cookies?page=1",
+                "first_page_url" => "http://localhost:8000/cookies?page=1",
                 "from" => 1,
                 "last_page" => 1,
-                "last_page_url" => "http://localhost/cookies?page=1",
+                "last_page_url" => "http://localhost:8000/cookies?page=1",
                 "next_page_url" => null,
-                "path" => "http://localhost/cookies",
+                "path" => "http://localhost:8000/cookies",
                 "per_page" => 10,
                 "prev_page_url" => null,
                 "to" => 1,
@@ -63,16 +63,16 @@ class CookieTest extends TestCase
             ->assertStatus(200)
             ->assertJsonFragment([
                 "current_page" => 2,
-                "first_page_url" => "http://localhost/cookies?page=1",
+                "first_page_url" => "http://localhost:8000/cookies?page=1",
                 "from" => 11,
                 "last_page" => 3,
-                "last_page_url" => "http://localhost/cookies?page=3",
-                "next_page_url" => "http://localhost/cookies?page=3",
-                "path" => "http://localhost/cookies",
+                "last_page_url" => "http://localhost:8000/cookies?page=3",
+                "next_page_url" => "http://localhost:8000/cookies?page=3",
+                "path" => "http://localhost:8000/cookies",
                 "per_page" => 10,
-                "prev_page_url" => "http://localhost/cookies?page=1",
+                "prev_page_url" => "http://localhost:8000/cookies?page=1",
                 "to" => 20,
-                "total" => 25
+                "total" => 26
             ]);
 
     }
