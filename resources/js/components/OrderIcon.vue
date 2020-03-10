@@ -1,5 +1,5 @@
 <template>
-    <div class="tooltip">
+    <div class="md-tooltip md-tooltip--left " :data-md-tooltip="$t('tooltip.sort_current_page_result', {ordering: getAscDescStringFormatted()})">
         <div v-if="getColumnCurrentSortDir() !== 'asc' && getColumnCurrentSort() === this.currentSort">
             <div v-if="!isColumnNumbered">
                 <svg style="width:16px;height:16px" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@
                 </svg>
             </div>
         </div>
-        <span class="tooltiptext">{{ $t('tooltip.sort_current_page_result', {ordering: getAscDescStringFormatted()})}}</span>
+<!--        <span class="tooltiptext text-sm">{{ $t('tooltip.sort_current_page_result', {ordering: getAscDescStringFormatted()})}}</span>-->
     </div>
 </template>
 

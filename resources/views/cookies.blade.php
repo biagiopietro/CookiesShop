@@ -6,6 +6,6 @@
         <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2">
             <cookies-section></cookies-section>
         </div>
-        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 bg-"></div>
+        <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2"></div>
     </div>
 @endsection

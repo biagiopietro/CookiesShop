@@ -217,6 +217,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -10199,7 +10206,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full" },
     [
       _c(
         "vue-tailwind-modal",
@@ -10286,100 +10292,111 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("search-bar", {
-        attrs: {
-          csrf: _vm.csrf,
-          placeholder: _vm.$t("cookies_form.search_cookies")
-        },
-        on: { searchFunction: _vm.getCookies, update: _vm.setSearchValue }
-      }),
+      _c(
+        "div",
+        { staticClass: "full" },
+        [
+          _c("search-bar", {
+            attrs: {
+              csrf: _vm.csrf,
+              placeholder: _vm.$t("cookies_form.search_cookies")
+            },
+            on: { searchFunction: _vm.getCookies, update: _vm.setSearchValue }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("table", { staticClass: "mb-4 mt-4" }, [
-        _c("thead", [
-          _c(
-            "tr",
-            [
-              _c("custom-th", {
-                attrs: {
-                  id: "th-name",
-                  content: _vm.$t("cookies_table.name"),
-                  currentSort: "name",
-                  isColumnNumbered: false
-                }
-              }),
-              _vm._v(" "),
-              _c("custom-th", {
-                attrs: {
-                  id: "th-weight",
-                  content: _vm.$t("cookies_table.weight"),
-                  currentSort: "weight",
-                  isColumnNumbered: true
-                }
-              }),
-              _vm._v(" "),
-              _c("custom-th", {
-                attrs: {
-                  id: "th-calories",
-                  content: _vm.$t("cookies_table.calories"),
-                  currentSort: "calories",
-                  isColumnNumbered: true
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "tbody",
-          _vm._l(_vm.sortedCookies, function(cookie) {
-            return _c(
+      _c("div", {}, [
+        _c("table", { staticClass: "w-full table-auto mb-4 mt-4" }, [
+          _c("thead", [
+            _c(
               "tr",
-              {
-                staticClass: "alternate-color hover:bg-gray z-10",
-                attrs: { id: "cookie-row-" + cookie.id },
-                on: {
-                  click: function($event) {
-                    return _vm.showIngredients(cookie.id)
-                  }
-                }
-              },
               [
-                _c(
-                  "td",
-                  { staticClass: "cookie-name px-4 py-2" },
-                  [
-                    _c("span", { attrs: { id: "cookie-name-" + cookie.id } }, [
-                      _vm._v(_vm._s(cookie.name))
-                    ]),
-                    _vm._v(" "),
-                    _c("vegan-veggie-badge", {
-                      attrs: {
-                        cookie_id: cookie.id,
-                        is_veggie: cookie.is_veggie,
-                        is_vegan: cookie.is_vegan
-                      }
-                    })
-                  ],
-                  1
-                ),
+                _c("custom-th", {
+                  attrs: {
+                    id: "th-name",
+                    content: _vm.$t("cookies_table.name"),
+                    currentSort: "name",
+                    isColumnNumbered: false
+                  }
+                }),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "cookie-weight text-center px-4 py-2" },
-                  [_vm._v(_vm._s(cookie.weight))]
-                ),
+                _c("custom-th", {
+                  attrs: {
+                    id: "th-weight",
+                    content: _vm.$t("cookies_table.weight"),
+                    currentSort: "weight",
+                    isColumnNumbered: true
+                  }
+                }),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "cookie-calories text-center px-4 py-2" },
-                  [_vm._v(_vm._s(cookie.calories))]
-                )
-              ]
+                _c("custom-th", {
+                  attrs: {
+                    id: "th-calories",
+                    content: _vm.$t("cookies_table.calories"),
+                    currentSort: "calories",
+                    isColumnNumbered: true
+                  }
+                })
+              ],
+              1
             )
-          }),
-          0
-        )
+          ]),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.sortedCookies, function(cookie) {
+              return _c(
+                "tr",
+                {
+                  staticClass: "alternate-color hover:bg-gray z-10",
+                  attrs: { id: "cookie-row-" + cookie.id },
+                  on: {
+                    click: function($event) {
+                      return _vm.showIngredients(cookie.id)
+                    }
+                  }
+                },
+                [
+                  _c(
+                    "td",
+                    { staticClass: "cookie-name px-4 py-2" },
+                    [
+                      _c(
+                        "span",
+                        { attrs: { id: "cookie-name-" + cookie.id } },
+                        [_vm._v(_vm._s(cookie.name))]
+                      ),
+                      _vm._v(" "),
+                      _c("vegan-veggie-badge", {
+                        attrs: {
+                          cookie_id: cookie.id,
+                          is_veggie: cookie.is_veggie,
+                          is_vegan: cookie.is_vegan
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "cookie-weight text-center px-4 py-2" },
+                    [_vm._v(_vm._s(cookie.weight))]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "td",
+                    { staticClass: "cookie-calories text-center px-4 py-2" },
+                    [_vm._v(_vm._s(cookie.calories))]
+                  )
+                ]
+              )
+            }),
+            0
+          )
+        ])
       ]),
       _vm._v(" "),
       _c("pagination", {
@@ -10769,98 +10786,99 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tooltip" }, [
-    _vm.getColumnCurrentSortDir() !== "asc" &&
-    _vm.getColumnCurrentSort() === this.currentSort
-      ? _c("div", [
-          !_vm.isColumnNumbered
-            ? _c("div", [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: { width: "16px", height: "16px" },
-                    attrs: { viewBox: "0 0 24 24" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        fill: "currentColor",
-                        d:
-                          "M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12M9 13V15L5.67 19H9V21H3V19L6.33 15H3V13M7 3H5C3.9 3 3 3.9 3 5V11H5V9H7V11H9V5C9 3.9 8.11 3 7 3M7 7H5V5H7Z"
-                      }
-                    })
-                  ]
-                )
-              ])
-            : _c("div", [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: { width: "24px", height: "16px" },
-                    attrs: { viewBox: "0 0 24 24" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        fill: "currentColor",
-                        d:
-                          "M7 21H3V19H7V18H5C3.9 18 3 17.11 3 16V15C3 13.9 3.9 13 5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21M7 15H5V16H7M5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11H5C3.9 11 3 10.11 3 9V5C3 3.9 3.9 3 5 3M5 9H7V5H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
-                      }
-                    })
-                  ]
-                )
-              ])
-        ])
-      : _c("div", [
-          !_vm.isColumnNumbered
-            ? _c("div", [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: { width: "16px", height: "16px" },
-                    attrs: { viewBox: "0 0 24 24" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        fill: "currentColor",
-                        d:
-                          "M7 13H5C3.9 13 3 13.9 3 15V21H5V19H7V21H9V15C9 13.9 8.11 13 7 13M7 17H5V15H7M9 3V5L5.67 9H9V11H3V9L6.33 5H3V3M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
-                      }
-                    })
-                  ]
-                )
-              ])
-            : _c("div", [
-                _c(
-                  "svg",
-                  {
-                    staticStyle: { width: "24px", height: "16px" },
-                    attrs: { viewBox: "0 0 24 24" }
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        fill: "currentColor",
-                        d:
-                          "M7 11H3V9H7V8H5C3.9 8 3 7.11 3 6V5C3 3.9 3.9 3 5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11M7 5H5V6H7M5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21H5C3.9 21 3 20.11 3 19V15C3 13.9 3.9 13 5 13M5 19H7V15H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
-                      }
-                    })
-                  ]
-                )
-              ])
-        ]),
-    _vm._v(" "),
-    _c("span", { staticClass: "tooltiptext" }, [
-      _vm._v(
-        _vm._s(
-          _vm.$t("tooltip.sort_current_page_result", {
-            ordering: _vm.getAscDescStringFormatted()
-          })
-        )
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "md-tooltip md-tooltip--left ",
+      attrs: {
+        "data-md-tooltip": _vm.$t("tooltip.sort_current_page_result", {
+          ordering: _vm.getAscDescStringFormatted()
+        })
+      }
+    },
+    [
+      _vm.getColumnCurrentSortDir() !== "asc" &&
+      _vm.getColumnCurrentSort() === this.currentSort
+        ? _c("div", [
+            !_vm.isColumnNumbered
+              ? _c("div", [
+                  _c(
+                    "svg",
+                    {
+                      staticStyle: { width: "16px", height: "16px" },
+                      attrs: { viewBox: "0 0 24 24" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "currentColor",
+                          d:
+                            "M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12M9 13V15L5.67 19H9V21H3V19L6.33 15H3V13M7 3H5C3.9 3 3 3.9 3 5V11H5V9H7V11H9V5C9 3.9 8.11 3 7 3M7 7H5V5H7Z"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _c("div", [
+                  _c(
+                    "svg",
+                    {
+                      staticStyle: { width: "24px", height: "16px" },
+                      attrs: { viewBox: "0 0 24 24" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "currentColor",
+                          d:
+                            "M7 21H3V19H7V18H5C3.9 18 3 17.11 3 16V15C3 13.9 3.9 13 5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21M7 15H5V16H7M5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11H5C3.9 11 3 10.11 3 9V5C3 3.9 3.9 3 5 3M5 9H7V5H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                        }
+                      })
+                    ]
+                  )
+                ])
+          ])
+        : _c("div", [
+            !_vm.isColumnNumbered
+              ? _c("div", [
+                  _c(
+                    "svg",
+                    {
+                      staticStyle: { width: "16px", height: "16px" },
+                      attrs: { viewBox: "0 0 24 24" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "currentColor",
+                          d:
+                            "M7 13H5C3.9 13 3 13.9 3 15V21H5V19H7V21H9V15C9 13.9 8.11 13 7 13M7 17H5V15H7M9 3V5L5.67 9H9V11H3V9L6.33 5H3V3M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                        }
+                      })
+                    ]
+                  )
+                ])
+              : _c("div", [
+                  _c(
+                    "svg",
+                    {
+                      staticStyle: { width: "24px", height: "16px" },
+                      attrs: { viewBox: "0 0 24 24" }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          fill: "currentColor",
+                          d:
+                            "M7 11H3V9H7V8H5C3.9 8 3 7.11 3 6V5C3 3.9 3.9 3 5 3H7C8.11 3 9 3.9 9 5V9C9 10.11 8.11 11 7 11M7 5H5V6H7M5 13H7C8.11 13 9 13.9 9 15V19C9 20.11 8.11 21 7 21H5C3.9 21 3 20.11 3 19V15C3 13.9 3.9 13 5 13M5 19H7V15H5M12 5H22V7H12M12 19V17H22V19M12 11H22V13H12Z"
+                        }
+                      })
+                    ]
+                  )
+                ])
+          ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

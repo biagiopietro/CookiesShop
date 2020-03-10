@@ -1,6 +1,6 @@
 <template>
-    <div class="w-full">
-            <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20 w-full'">
+    <div>
+        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20 w-full'">
             <div class="bg-white w-full">
                 <ul class="max-w-sm rounded overflow-hidden ">
                     <div class="px-6 pt-4">
@@ -21,11 +21,13 @@
                 </ul>
             </div>
             <div class="flex justify-center">
-                <button id="modal-got-it" type="button" v-on:click="visible = false" class="py-2 px-3 rounded bg-orange text-white">
+                <button id="modal-got-it" type="button" v-on:click="visible = false"
+                        class="py-2 px-3 rounded bg-orange text-white">
                     {{ $t('cookies_table.got_it') }}
                 </button>
             </div>
         </vue-tailwind-modal>
+        <div class="full">
 
             <search-bar
                 :csrf="csrf"
@@ -33,7 +35,9 @@
                 v-on:searchFunction="getCookies"
                 @update="setSearchValue">
             </search-bar>
-            <table class="mb-4 mt-4">
+        </div>
+        <div class="">
+            <table class="w-full table-auto mb-4 mt-4">
                 <thead>
                 <tr>
                     <custom-th
@@ -57,23 +61,26 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)" :id="'cookie-row-' +cookie.id"
-                        class="alternate-color hover:bg-gray z-10">
-                        <td class="cookie-name px-4 py-2">
-                            <span :id="'cookie-name-' + cookie.id">{{ cookie.name }}</span>
-                            <vegan-veggie-badge :cookie_id="cookie.id"
-                                                :is_veggie="cookie.is_veggie"
-                                                :is_vegan="cookie.is_vegan">
-                            </vegan-veggie-badge>
-                        </td>
-                        <td class="cookie-weight text-center px-4 py-2">{{ cookie.weight }}</td>
-                        <td class="cookie-calories text-center px-4 py-2">{{ cookie.calories }}</td>
-                    </tr>
+                <tr v-for="cookie in sortedCookies" v-on:click="showIngredients(cookie.id)"
+                    :id="'cookie-row-' +cookie.id"
+                    class="alternate-color hover:bg-gray z-10">
+                    <td class="cookie-name px-4 py-2">
+                        <span :id="'cookie-name-' + cookie.id">{{ cookie.name }}</span>
+                        <vegan-veggie-badge :cookie_id="cookie.id"
+                                            :is_veggie="cookie.is_veggie"
+                                            :is_vegan="cookie.is_vegan">
+                        </vegan-veggie-badge>
+                    </td>
+                    <td class="cookie-weight text-center px-4 py-2">{{ cookie.weight }}</td>
+                    <td class="cookie-calories text-center px-4 py-2">{{ cookie.calories }}</td>
+                </tr>
                 </tbody>
             </table>
-            <pagination :id="'pagination'" class="pb-12" :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
         </div>
+        <pagination :id="'pagination'" class="pb-12" :data="pagination" @pagination-change-page="getCookies"
+                    :limit="limit"></pagination>
     </div>
+
 </template>
 
 
@@ -122,7 +129,7 @@
                     this.ingredients = data;
                 });
             },
-            setSearchValue: function(search) {
+            setSearchValue: function (search) {
                 this.search = search;
             },
             getCookies(page) {
@@ -149,7 +156,7 @@
                 }
                 this.currentSort = s;
             },
-            getCurrentSortDir: function() {
+            getCurrentSortDir: function () {
                 return this.currentSortDir;
             }
         },
