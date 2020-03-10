@@ -22,12 +22,12 @@
     </div>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
     <div id="app">
         @yield('content')
     </div>
 </body>
-<footer class="w-full text-center border-t border-grey bg-orange p-4 pin-b">
+<footer class="w-full text-center border-t border-grey bg-orange p-4 pin-b bottom-0 fixed z-10">
     <p class="text-xs text-white">
         ©2020 Biagio Pietro Capece.
     </p>

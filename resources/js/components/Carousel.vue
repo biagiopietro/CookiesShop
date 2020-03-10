@@ -5,8 +5,7 @@
         :images="vfImages"
         :transitions="vfTransitions"
         :captions="vfCaptions"
-        ref="slider"
-        style="height: 30rem;">
+        ref="slider">
     </vue-flux>
 </template>
 

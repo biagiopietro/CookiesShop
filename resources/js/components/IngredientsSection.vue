@@ -39,7 +39,7 @@
                 </tr>
                 </tbody>
             </table>
-            <pagination :id="'pagination'" :data="pagination" @pagination-change-page="getIngredients" :limit="limit"></pagination>
+            <pagination :id="'pagination'" class="pb-12"  :data="pagination" @pagination-change-page="getIngredients" :limit="limit"></pagination>
         </div>
     </div>
 </template>

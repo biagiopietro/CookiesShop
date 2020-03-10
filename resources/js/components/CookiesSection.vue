@@ -1,7 +1,7 @@
 <template>
     <div>
-        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20'">
-            <div class="bg-white w-auto">
+        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20 w-full'">
+            <div class="bg-white w-full">
                 <ul class="max-w-sm rounded overflow-hidden ">
                     <div class="px-6 pt-4">
                         <div id="modal-title" class="font-bold text-xl mb-2 text-orange"></div>
@@ -25,8 +25,6 @@
                     {{ $t('cookies_table.got_it') }}
                 </button>
             </div>
-
-
         </vue-tailwind-modal>
         <div class="w-full">
             <search-bar
@@ -75,7 +73,7 @@
                     </tr>
                 </tbody>
             </table>
-            <pagination :id="'pagination'" :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
+            <pagination :id="'pagination'" class="pb-12" :data="pagination" @pagination-change-page="getCookies" :limit="limit"></pagination>
         </div>
     </div>
 </template>

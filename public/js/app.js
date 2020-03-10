@@ -108,7 +108,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -139,8 +138,6 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tailwind-modal */ "./node_modules/vue-tailwind-modal/dist/vue-tailwind-modal.common.js");
 /* harmony import */ var vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_tailwind_modal__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
 //
 //
 //
@@ -10172,7 +10169,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("vue-flux", {
     ref: "slider",
-    staticStyle: { height: "30rem" },
     attrs: {
       options: _vm.vfOptions,
       images: _vm.vfImages,
@@ -10209,7 +10205,7 @@ var render = function() {
       _c(
         "vue-tailwind-modal",
         {
-          class: "z-20",
+          class: "z-20 w-full",
           attrs: { showing: _vm.visible },
           on: {
             close: function($event) {
@@ -10218,7 +10214,7 @@ var render = function() {
           }
         },
         [
-          _c("div", { staticClass: "bg-white w-auto" }, [
+          _c("div", { staticClass: "bg-white w-full" }, [
             _c("ul", { staticClass: "max-w-sm rounded overflow-hidden " }, [
               _c("div", { staticClass: "px-6 pt-4" }, [
                 _c("div", {
@@ -10401,6 +10397,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("pagination", {
+            staticClass: "pb-12",
             attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
             on: { "pagination-change-page": _vm.getCookies }
           })
@@ -10578,6 +10575,7 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("pagination", {
+          staticClass: "pb-12",
           attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
           on: { "pagination-change-page": _vm.getIngredients }
         })
