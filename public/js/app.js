@@ -108,6 +108,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
  // https://github.com/deulos/vue-flux
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -10202,6 +10203,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("vue-flux", {
     ref: "slider",
+    staticStyle: { "min-height": "35rem" },
     attrs: {
       options: _vm.vfOptions,
       images: _vm.vfImages,
