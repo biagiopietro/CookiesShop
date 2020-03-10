@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20 w-full'">
+    <div class="w-full">
+            <vue-tailwind-modal :showing="visible" @close="visible = false" :class="'z-20 w-full'">
             <div class="bg-white w-full">
                 <ul class="max-w-sm rounded overflow-hidden ">
                     <div class="px-6 pt-4">
@@ -26,7 +26,7 @@
                 </button>
             </div>
         </vue-tailwind-modal>
-        <div class="w-full">
+
             <search-bar
                 :csrf="csrf"
                 :placeholder="$t('cookies_form.search_cookies')"

@@ -10199,6 +10199,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "w-full" },
     [
       _c(
         "vue-tailwind-modal",
@@ -10285,116 +10286,107 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "w-full" },
-        [
-          _c("search-bar", {
-            attrs: {
-              csrf: _vm.csrf,
-              placeholder: _vm.$t("cookies_form.search_cookies")
-            },
-            on: { searchFunction: _vm.getCookies, update: _vm.setSearchValue }
-          }),
-          _vm._v(" "),
-          _c("table", { staticClass: "mb-4 mt-4" }, [
-            _c("thead", [
-              _c(
-                "tr",
-                [
-                  _c("custom-th", {
-                    attrs: {
-                      id: "th-name",
-                      content: _vm.$t("cookies_table.name"),
-                      currentSort: "name",
-                      isColumnNumbered: false
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("custom-th", {
-                    attrs: {
-                      id: "th-weight",
-                      content: _vm.$t("cookies_table.weight"),
-                      currentSort: "weight",
-                      isColumnNumbered: true
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("custom-th", {
-                    attrs: {
-                      id: "th-calories",
-                      content: _vm.$t("cookies_table.calories"),
-                      currentSort: "calories",
-                      isColumnNumbered: true
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.sortedCookies, function(cookie) {
-                return _c(
-                  "tr",
-                  {
-                    staticClass: "alternate-color hover:bg-gray z-10",
-                    attrs: { id: "cookie-row-" + cookie.id },
-                    on: {
-                      click: function($event) {
-                        return _vm.showIngredients(cookie.id)
-                      }
-                    }
-                  },
-                  [
-                    _c(
-                      "td",
-                      { staticClass: "cookie-name px-4 py-2" },
-                      [
-                        _c(
-                          "span",
-                          { attrs: { id: "cookie-name-" + cookie.id } },
-                          [_vm._v(_vm._s(cookie.name))]
-                        ),
-                        _vm._v(" "),
-                        _c("vegan-veggie-badge", {
-                          attrs: {
-                            cookie_id: cookie.id,
-                            is_veggie: cookie.is_veggie,
-                            is_vegan: cookie.is_vegan
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      { staticClass: "cookie-weight text-center px-4 py-2" },
-                      [_vm._v(_vm._s(cookie.weight))]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "td",
-                      { staticClass: "cookie-calories text-center px-4 py-2" },
-                      [_vm._v(_vm._s(cookie.calories))]
-                    )
-                  ]
-                )
+      _c("search-bar", {
+        attrs: {
+          csrf: _vm.csrf,
+          placeholder: _vm.$t("cookies_form.search_cookies")
+        },
+        on: { searchFunction: _vm.getCookies, update: _vm.setSearchValue }
+      }),
+      _vm._v(" "),
+      _c("table", { staticClass: "mb-4 mt-4" }, [
+        _c("thead", [
+          _c(
+            "tr",
+            [
+              _c("custom-th", {
+                attrs: {
+                  id: "th-name",
+                  content: _vm.$t("cookies_table.name"),
+                  currentSort: "name",
+                  isColumnNumbered: false
+                }
               }),
-              0
+              _vm._v(" "),
+              _c("custom-th", {
+                attrs: {
+                  id: "th-weight",
+                  content: _vm.$t("cookies_table.weight"),
+                  currentSort: "weight",
+                  isColumnNumbered: true
+                }
+              }),
+              _vm._v(" "),
+              _c("custom-th", {
+                attrs: {
+                  id: "th-calories",
+                  content: _vm.$t("cookies_table.calories"),
+                  currentSort: "calories",
+                  isColumnNumbered: true
+                }
+              })
+            ],
+            1
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.sortedCookies, function(cookie) {
+            return _c(
+              "tr",
+              {
+                staticClass: "alternate-color hover:bg-gray z-10",
+                attrs: { id: "cookie-row-" + cookie.id },
+                on: {
+                  click: function($event) {
+                    return _vm.showIngredients(cookie.id)
+                  }
+                }
+              },
+              [
+                _c(
+                  "td",
+                  { staticClass: "cookie-name px-4 py-2" },
+                  [
+                    _c("span", { attrs: { id: "cookie-name-" + cookie.id } }, [
+                      _vm._v(_vm._s(cookie.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("vegan-veggie-badge", {
+                      attrs: {
+                        cookie_id: cookie.id,
+                        is_veggie: cookie.is_veggie,
+                        is_vegan: cookie.is_vegan
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "cookie-weight text-center px-4 py-2" },
+                  [_vm._v(_vm._s(cookie.weight))]
+                ),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  { staticClass: "cookie-calories text-center px-4 py-2" },
+                  [_vm._v(_vm._s(cookie.calories))]
+                )
+              ]
             )
-          ]),
-          _vm._v(" "),
-          _c("pagination", {
-            staticClass: "pb-12",
-            attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
-            on: { "pagination-change-page": _vm.getCookies }
-          })
-        ],
-        1
-      )
+          }),
+          0
+        )
+      ]),
+      _vm._v(" "),
+      _c("pagination", {
+        staticClass: "pb-12",
+        attrs: { id: "pagination", data: _vm.pagination, limit: _vm.limit },
+        on: { "pagination-change-page": _vm.getCookies }
+      })
     ],
     1
   )
