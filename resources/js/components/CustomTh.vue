@@ -1,5 +1,5 @@
 <template>
-    <th :id="id" class="px-4 py-2 bg-red text-white" v-on:click="sort(currentSort)">
+    <th :id="id" class="px-2 py-2 bg-red text-white" v-on:click="sort(currentSort)">
         <div class="flex justify-center">
             {{ content }}
             <order-icon
