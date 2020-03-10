@@ -163,10 +163,7 @@ To:
 You can run ```laravel dusk``` tests so you need to:
 - Make sure you have installed ```Google Chrome``` browser.
     - In ```Linux``` systems you can run ```sudo apt install chromium-browser```.
-  <br/>
-  **Note**
-  <br/>
-  If you want to test using other browser please visit [Laravel-Dusk#Using Other Browsers](https://laravel.com/docs/5.8/dusk#using-other-browsers).
+    - ```[OPTIONAL]``` If you want to test using other browser please visit [Laravel-Dusk#Using Other Browsers](https://laravel.com/docs/5.8/dusk#using-other-browsers).
 - Create your own ```.env.dusk.local```;
 - Run migrations and seeds in the database (specified in ```.env.dusk.local```) used for the tests.
     - ```php artisan migrate --env=dusk.local ```;
