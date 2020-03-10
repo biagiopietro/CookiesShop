@@ -168,7 +168,10 @@ You can run ```laravel dusk``` tests so you need to:
   <br/>
   If you want to test using other browser please visit [Laravel-Dusk#Using Other Browsers](https://laravel.com/docs/5.8/dusk#using-other-browsers).
 - Create your own ```.env.dusk.local```;
-- Start the server: ```php artisan serve --env=dusk.local --port=<put_the_port_specified_in_APP_URL_key_inside_env_dusk_dot_local>```;
+- Run migrations and seeds in the database (specified in ```.env.dusk.local```) used for the tests.
+    - ```php artisan migrate --env=dusk.local ```;
+    - ```php artisan db:seed --env=dusk.local ```.
+- Start the server: ```php artisan serve --env=dusk.local --port=<port_specified_in_APP_URL_key_inside_env_dusk_dot_local>```;
 - Start dusk tests: ```php artisan dusk``` .
 
 **Note**
@@ -195,7 +198,7 @@ For example:
     }
 ```
 ### Demo of Running Dusk Tests on Google Chrome
-![](docs/cookies_shop_dusk_tests.mp4)
+![Imgur](https://i.imgur.com/vGhU6aT.mp4)
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
