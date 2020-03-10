@@ -18,6 +18,16 @@ Try it online [Cookies Shop](http://cookies-shop.herokuapp.com)!!!
     <img class="mark" src="https://laravel.com/img/logomark.min.svg" alt="Laravel"><img class="type" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
 </a>
 &nbsp;
+<a href="https://tailwindcss.com" class="logo">
+    <img class="mark" src="https://img.stackshare.io/service/8158/E1G1nNb0_400x400.jpg" width="70"  alt="TailwindCss">
+</a>
+&nbsp;
+
+<a href="https://vuejs.org" class="logo">
+    <img class="mark" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/800px-Vue.js_Logo_2.svg.png"  width="70" alt="VueJs">
+</a>
+&nbsp;
+
 <a href="https://laravel.com/docs/7.x/dusk" class="logo">
     <img class="mark" src="https://miro.medium.com/max/2200/1*98DMDTtATw-dbbmyfSTkQw.png" width="150" alt="Laravel Dusk">
 </a>
