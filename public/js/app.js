@@ -217,8 +217,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -10297,16 +10295,9 @@ var render = function() {
               placeholder: _vm.$t("cookies_form.search_cookies")
             },
             on: { searchFunction: _vm.getCookies, update: _vm.setSearchValue }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {},
-        [
-          _c("table", { staticClass: "w-full table-auto mb-4 mt-4" }, [
+          }),
+          _vm._v(" "),
+          _c("table", { staticClass: "mb-4 mt-4" }, [
             _c("thead", [
               _c(
                 "tr",

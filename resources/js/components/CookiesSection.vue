@@ -33,9 +33,7 @@
                 v-on:searchFunction="getCookies"
                 @update="setSearchValue">
             </search-bar>
-        </div>
-        <div class="">
-            <table class="w-full table-auto mb-4 mt-4">
+            <table class="mb-4 mt-4">
                 <thead>
                 <tr>
                     <custom-th
