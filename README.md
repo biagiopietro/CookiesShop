@@ -199,7 +199,7 @@ For example:
 ```
 ### Demo of Running Dusk Tests on Google Chrome
 
-![](https://i.imgur.com/uq1cufg.gif)
+![](https://i.imgur.com/jETfIP7.gif)
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
