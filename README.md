@@ -198,7 +198,8 @@ For example:
     }
 ```
 ### Demo of Running Dusk Tests on Google Chrome
-![](https://i.imgur.com/vGhU6aT.mp4)
+
+![Imur](https://i.imgur.com/uq1cufg.gifv)
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
