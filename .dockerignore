@@ -16,10 +16,12 @@ yarn-error.log
 .dockerignore
 .editorconfig
 .env.dusk.local
-.env.example
+.env
 .idea
-.styleci.yaml
-.Procfile
+.styleci.yml
+.git
+.gitattributes
+Procfile
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
