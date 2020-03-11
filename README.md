@@ -234,7 +234,7 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
   The above lines are inside the ```register``` method in ```app/Providers/AppServiceProvider.php``` file. 
   <br/>
   You need to do that because the ```dusk's``` files are ignored by the ```.dockerignore``` file.
-- Run ```docker build . -t  cookies_shop```;
+- Run ```docker build . -t cookies_shop```;
 - Make sure that the image is created, so run ```docker images | grep cookies_shop```;
 
 **Note**
@@ -251,7 +251,7 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 ```
 
 ### Run
-- Run ``` docker run -it --network=host cookies_shop ``` to run the docker image;
+- Run ``` docker run -it --env-file .env --network=host --name cookies_shop cookies_shop ``` to run the docker image;
 
 **IMPORTANT**
 <br/>
@@ -261,14 +261,8 @@ In this way you can able to connect the laravel application running in the conta
 
 
 ### Too lazy to build and run from your own?
-No problem!!! You can pull a fresh docker image and run it. 
-<br/>
-Obviously it doesn't contains ```env variables``` so you need to specific them when you run the docker image.
-<br/>
-For example: 
-```
-    docker run -it --env-file .env  --network=host cookies_shop
-```
+No problem!!! You can pull a [fresh docker image](https://hub.docker.com/repository/docker/biagiopietro/cookies_shop) and run it. 
+
 <br/>
 
 **Note**
