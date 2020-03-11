@@ -181,7 +181,7 @@ You can run ```laravel dusk``` tests so you need to:
     - _[TIP]_ In ```Linux``` systems you can run ```sudo apt install chromium-browser```.
     - ```[OPTIONAL]``` If you want to test using other browser please visit [Laravel-Dusk#Using Other Browsers](https://laravel.com/docs/5.8/dusk#using-other-browsers).
 - Create a new database for testing.
-    - _[TIP]_ You can follow [this guide](https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/) to create users and databases in ```MySQL``. 
+    - _[TIP]_ You can follow [this guide](https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/) to create users and databases in ```MySQL```. 
 - Create your own ```.env.dusk.local```;
     - _[TIP]_ In ```Linux``` systems you can run ```mv .env.dusk.local.example .env.dusk.local```.
 - Run migrations and seeds in the database (specified in ```.env.dusk.local```) used for the tests.
@@ -191,6 +191,7 @@ You can run ```laravel dusk``` tests so you need to:
 - Start dusk tests: ```php artisan dusk``` .
  
 **Note**
+<br/>
 If you want to see the selected browser running the ```dusk``` tests you need to comment ```--disable-gpu``` and ```--headless``` in ```~/CookiesShop/tests/DuskTestCase.php```.
 <br/>
 
@@ -222,7 +223,7 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
 
 ### Build
 - Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
-- Comment these lines:
+- Comment these lines (or in alternative you can set the ```APP_ENV``` variable to avoid the below check):
  <br/>
  
  ```php
@@ -230,11 +231,11 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
         $this->app->register(DuskServiceProvider::class);
     }
 ```
-  inside the ```register``` method in ```app/Providers/AppServiceProvider.php``` file. 
+  The above lines are inside the ```register``` method in ```app/Providers/AppServiceProvider.php``` file. 
   <br/>
   You need to do that because the ```dusk's``` files are ignored by the ```.dockerignore``` file.
-- Run ```docker build . -t  cookie_shop```;
-- Make sure that the image is created, so run ```docker images | grep cookie_shop```;
+- Run ```docker build . -t  cookies_shop```;
+- Make sure that the image is created, so run ```docker images | grep cookies_shop```;
 
 **Note**
 <br/>
@@ -250,13 +251,33 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 ```
 
 ### Run
-- Run ``` docker run -it --network=host cookie_shop ``` to run the docker image;
+- Run ``` docker run -it --network=host cookies_shop ``` to run the docker image;
 
 **IMPORTANT**
 <br/>
 The flag ```--network=host``` needs to share the ```host``` network with the container.
 <br/>
-In this way i can able to connect the laravel application running in the container with the ```MySQL``` database inside  my ```local``` machine.
+In this way you can able to connect the laravel application running in the container with the ```MySQL``` database inside your ```local``` machine.
+
+
+### Too lazy to build and run from your own?
+No problem!!! You can pull a fresh docker image and run it. 
+<br/>
+Obviously it doesn't contains ```env variables``` so you need to specific them when you run the docker image.
+<br/>
+For example: 
+```
+    docker run -it --env-file .env  --network=host cookies_shop
+```
+<br/>
+
+**Note**
+<br/>
+The pulled image connects only with ```MySQL``` databases. If you need to connect to other databases you will need to:
+- Edit the source code;
+- Run tests ```[Optional]```;
+- Build the docker image;
+- Run the created image.
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
