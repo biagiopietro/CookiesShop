@@ -250,7 +250,7 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 ```
 
 ### Run
-- Run ``` docker run -it -p8000:80 --network=host cookie_shop ``` to run the docker image;
+- Run ``` docker run -it --network=host cookie_shop ``` to run the docker image;
 
 **IMPORTANT**
 <br/>
