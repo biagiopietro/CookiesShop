@@ -4,7 +4,7 @@
 This is a simple Cookies shop application written using Laravel as framework.
 
 ## Cookies Shop online
-Too lazy to test Cookies Shop project locally?
+Too lazy to try Cookies Shop project locally?
 Don't worry! 
 Try it online [Cookies Shop](http://cookies-shop.herokuapp.com)!!!
 
