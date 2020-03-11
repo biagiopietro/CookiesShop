@@ -17,7 +17,8 @@
         "laravel/tinker": "^2.0",
         "symfony/dom-crawler": "^5.0",
         "symfony/yaml": "^5.0",
-        "symfony/translation": "4.3.8"
+        "symfony/translation": "4.3.8",
+        "martinlindhe/laravel-vue-i18n-generator": "^0.1.45"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
@@ -35,7 +36,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/dusk"
+            ]
         }
     },
     "autoload": {
@@ -44,6 +47,7 @@
         },
         "classmap": [
             "database/seeds",
+            "database/seeds/from_yaml",
             "database/factories"
         ]
     },
