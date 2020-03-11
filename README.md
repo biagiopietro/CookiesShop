@@ -214,6 +214,15 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
 
 ### Build
 - Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
+- Comment these lines:
+ <br/>
+ ```php
+            if ($this->app->environment('local', 'testing', 'staging')) {
+                $this->app->register(DuskServiceProvider::class);
+            }
+```
+  inside the ```register``` method in ```app/Providers/AppServiceProvider.php``` file. 
+  <br/>You need to do that because the ```dusk's``` files are ignored by the ```.dockerignore``` file.
 - Run ```docker build . -t  cookie_shop```;
 - Make sure that the image is created, so run ```docker images | grep cookie_shop```;
 
