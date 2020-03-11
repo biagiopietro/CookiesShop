@@ -254,15 +254,15 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 - Run ``` docker run -it --env-file .env --network=host --name cookies_shop cookies_shop ``` to run the docker image;
 
 **IMPORTANT**
-<br/>
-The flag ```--network=host``` needs to share the ```host``` network with the container.
-<br/>
-In this way you can able to connect the laravel application running in the container with the ```MySQL``` database inside your ```local``` machine.
+- The ```APP_ENV``` variable inside the ```.env``` file cannot be: `local`, `testing` or `staging` otherwise you will see ```Class 'Laravel\Dusk\DuskServiceProvider' not found``` error;
+- The flag ```--network=host``` needs to share the ```host``` network with the container. In this way you can able to connect the laravel application running in the container with the ```MySQL``` database inside your ```local``` machine.
 
 
 ### Too lazy to build and run from your own?
-No problem!!! You can pull a [fresh docker image](https://hub.docker.com/repository/docker/biagiopietro/cookies_shop) and run it. 
-
+No problem!!! You can pull a [fresh docker image](https://hub.docker.com/repository/docker/biagiopietro/cookies_shop) and run it as follow:
+```
+    docker run -it --env-file .env --network=host --name cookies_shop biagiopietro/cookies_shop
+```
 <br/>
 
 **Note**
