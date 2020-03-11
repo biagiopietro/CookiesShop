@@ -170,6 +170,12 @@ To:
 ```
 
 ## Testing
+
+### Unit test
+- Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
+- Run ```vendor/bin/phpunit  tests/Unit```.
+
+### Dusk test
 You can run ```laravel dusk``` tests so you need to:
 - Make sure you have installed ```Google Chrome``` browser.
     - _[TIP]_ In ```Linux``` systems you can run ```sudo apt install chromium-browser```.
