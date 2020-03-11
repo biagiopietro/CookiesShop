@@ -174,6 +174,8 @@ You can run ```laravel dusk``` tests so you need to:
 - Make sure you have installed ```Google Chrome``` browser.
     - _[TIP]_ In ```Linux``` systems you can run ```sudo apt install chromium-browser```.
     - ```[OPTIONAL]``` If you want to test using other browser please visit [Laravel-Dusk#Using Other Browsers](https://laravel.com/docs/5.8/dusk#using-other-browsers).
+- Create a new database for testing.
+    - _[TIP]_ You can follow [this guide](https://linuxize.com/post/how-to-create-mysql-user-accounts-and-grant-privileges/) to create users and databases in ```MySQL``. 
 - Create your own ```.env.dusk.local```;
     - _[TIP]_ In ```Linux``` systems you can run ```mv .env.dusk.local.example .env.dusk.local```.
 - Run migrations and seeds in the database (specified in ```.env.dusk.local```) used for the tests.
@@ -228,7 +230,7 @@ I also provided a ```Dockerfile``` to containerize this laravel project.
 
 **Note**
 <br/>
-The generated Docker image only connects with ```Mysql``` databases. 
+The generated Docker image only connects with ```MySQL``` databases. 
 If you need other connections feel free to chain them in the ```RUN``` attribute.
 <br/>
 For example if you need to use ```Redis``` you need to edit the ```Dockerfile``` as follow:
@@ -246,7 +248,7 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 <br/>
 The flag ```--network=host``` needs to share the ```host``` network with the container.
 <br/>
-In this way i can able to connect the laravel application running in the container with the ```Mysql``` database inside  my ```local``` machine.
+In this way i can able to connect the laravel application running in the container with the ```MySQL``` database inside  my ```local``` machine.
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
