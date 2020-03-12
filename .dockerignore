@@ -23,6 +23,7 @@ yarn-error.log
 .gitattributes
 Procfile
 *.sql
+*.yaml
 docker-compose.yml
 
 ### PhpStorm ###
