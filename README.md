@@ -1,5 +1,24 @@
 <p align="center"><img src="https://images.unsplash.com/photo-1548848221-0c2e497ed557?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" width="400" alt="Avatar"></p>
 
+Table of Contents
+=================
+* [Cookies Shop](#cookies-shop)
+* [Cookies Shop online](#cookies-shop-online)
+* [Powered by](#powered-by)
+* [Seed](#seed)
+     * [Cookies Seeder](#cookies-seeder)
+     * [Ingredients Seeder](#ingredients-seeder)
+     * [Cookie Recipes Seeder](#cookie-recipes-seeder)
+* [Testing](#testing)
+     * [Unit test](#unit-test)
+     * [Dusk test](#dusk-test)
+     * [Demo of Running Dusk Tests on Google Chrome](#demo-of-running-dusk-tests-on-google-chrome)
+* [Docker](#docker)
+     * [Build](#build)
+     * [Run](#run)
+     * [Too lazy to build and run from your own?](#too-lazy-to-build-and-run-from-your-own)
+* [License](#license)
+
 ## Cookies Shop
 This is a simple Cookies shop application written using Laravel as framework.
 
