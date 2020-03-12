@@ -24,6 +24,8 @@ yarn-error.log
 Procfile
 *.sql
 *.yaml
+kubernetes/*
+kubernetes
 docker-compose.yml
 
 ### PhpStorm ###
