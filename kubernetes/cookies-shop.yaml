@@ -1,0 +1,65 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cookies-shop
+  labels:
+    app: cookies-shop
+spec:
+  ports:
+    - port: 80
+      name: web
+  selector:
+    app: cookies-shop
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cookies-shop-debug
+  labels:
+    app: cookies-shop
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 31114
+      name: web
+  selector:
+    app: cookies-shop
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cookies-shop-deployment
+  labels:
+    app: cookies-shop
+    version: v1.0
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: cookies-shop
+  template:
+    metadata:
+      labels:
+        app: cookies-shop
+        version: v1.0
+    spec:
+      containers:
+        - name: cookies-shop
+          image: biagiopietro/cookies_shop
+          ports:
+          - containerPort: 80
+          volumeMounts:
+            - readOnly: true
+              mountPath: /app/.env
+              subPath: .env
+              name: env
+      volumes:
+        - name: env
+          configMap:
+            name: env-config-map

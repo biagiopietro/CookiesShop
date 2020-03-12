@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: cookies-shop-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: cookies.shop.it
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: cookies-shop
+              servicePort: 80
