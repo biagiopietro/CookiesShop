@@ -2,22 +2,24 @@
 
 Table of Contents
 =================
-* [Cookies Shop](#cookies-shop)
-* [Cookies Shop online](#cookies-shop-online)
-* [Powered by](#powered-by)
-* [Seed](#seed)
+* [Table of Contents](#table-of-contents)
+  * [Cookies Shop](#cookies-shop)
+  * [Cookies Shop online](#cookies-shop-online)
+  * [Powered by](#powered-by)
+  * [Seed](#seed)
      * [Cookies Seeder](#cookies-seeder)
      * [Ingredients Seeder](#ingredients-seeder)
      * [Cookie Recipes Seeder](#cookie-recipes-seeder)
-* [Testing](#testing)
+  * [Testing](#testing)
      * [Unit test](#unit-test)
      * [Dusk test](#dusk-test)
      * [Demo of Running Dusk Tests on Google Chrome](#demo-of-running-dusk-tests-on-google-chrome)
-* [Docker](#docker)
+  * [Docker](#docker)
      * [Build](#build)
      * [Run](#run)
      * [Too lazy to build and run from your own?](#too-lazy-to-build-and-run-from-your-own)
-* [License](#license)
+     * [Docker-compose](#docker-compose)
+  * [License](#license)
 
 ## Cookies Shop
 This is a simple Cookies shop application written using Laravel as framework.
@@ -191,7 +193,7 @@ To:
 ## Testing
 
 ### Unit test
-- Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
+- Run ```cd CookiesShop/``` to move into ```CookiesShop``` folder;
 - Run ```vendor/bin/phpunit  tests/Unit```.
 
 ### Dusk test
@@ -241,7 +243,7 @@ For example:
 I also provided a ```Dockerfile``` to containerize this laravel project.
 
 ### Build
-- Run ```cd CookiesShop``` to move into ```CookiesShop``` folder;
+- Run ```cd CookiesShop/``` to move into ```CookiesShop``` folder;
 - Comment these lines (or in alternative you can set the ```APP_ENV``` variable to avoid the below check):
  <br/>
  
@@ -275,7 +277,7 @@ For example if you need to use ```Redis``` you need to edit the ```Dockerfile```
 **IMPORTANT**
 - The ```APP_ENV``` variable inside the ```.env``` file cannot be: `local`, `testing` or `staging` otherwise you will see ```Class 'Laravel\Dusk\DuskServiceProvider' not found``` error;
 - The flag ```--network=host``` needs to share the ```host``` network with the container. In this way you can able to connect the laravel application running in the container with the ```MySQL``` database inside your ```local``` machine.
-
+- **Don't forget** to run migrations and seeds inside the container.
 
 ### Too lazy to build and run from your own?
 No problem!!! You can pull a [fresh docker image](https://hub.docker.com/repository/docker/biagiopietro/cookies_shop) and run it as follow:
@@ -291,6 +293,17 @@ The pulled image connects only with ```MySQL``` databases. If you need to connec
 - Run tests ```[Optional]```;
 - Build the docker image;
 - Run the created image.
+
+### Docker-compose
+You can run ```Cookies Shop + MySQL``` using ```docker-compose```.
+<br/>
+Let's start:
+- Run ```cd CookiesShop/``` to move where the ```docker-compose.yml``` is located;
+- Run ```mv .env.example .env``` to create your own ```.env``` because it will be **injected** into the Cookies Shop container;
+- Run ```docker-compose up```;
+- Run ```cat cookies_shop_dump.sql | docker exec -i <mysql-container> /usr/bin/mysql -u <MYSQL-USER> --password=<MYSQL-PASSWORD>  <MYSQL-DATABASE>``` to fill the database inside the mysql container.
+    - Example: ```cat cookies_shop_dump.sql | docker exec -i mysql /usr/bin/mysql -u user --password=password  cookies_shop```.
+
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
