@@ -18,7 +18,7 @@ Table of Contents
      * [Build](#build)
      * [Run](#run)
      * [Too lazy to build and run from your own?](#too-lazy-to-build-and-run-from-your-own)
-     * [Docker-compose](#docker-compose)
+  * [Docker-compose](#docker-compose)
   * [License](#license)
 
 ## Cookies Shop
@@ -294,7 +294,7 @@ The pulled image connects only with ```MySQL``` databases. If you need to connec
 - Build the docker image;
 - Run the created image.
 
-### Docker-compose
+## Docker-compose
 You can run ```Cookies Shop + MySQL``` using ```docker-compose```.
 <br/>
 Let's start:
