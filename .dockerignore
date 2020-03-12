@@ -22,6 +22,7 @@ yarn-error.log
 .git
 .gitattributes
 Procfile
+*.sql
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
