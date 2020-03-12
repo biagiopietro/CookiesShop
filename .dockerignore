@@ -23,6 +23,7 @@ yarn-error.log
 .gitattributes
 Procfile
 *.sql
+docker-compose.yml
 
 ### PhpStorm ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
