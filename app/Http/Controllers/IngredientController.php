@@ -17,7 +17,7 @@ class IngredientController extends Controller
         if ($request->wantsJson()) {
             return $this->search($request);
         }
-        return view('ingredients', ['ingredients' => $this->paginateIngredient($this->orderIngredientsByNameASC(Ingredient::query()))]);
+        return view('ingredients', ['ingredients' => $this->paginateIngredient($this->orderIngredientsByNameASC(Ingredient::getNotDeletedIngredients()))]);
     }
 
     private function search(Request $request)
@@ -26,7 +26,7 @@ class IngredientController extends Controller
             $search = $request->search;
             $filteredIngredients = Ingredient::where('name', 'LIKE', '%' . $search . '%');
         } else {
-            $filteredIngredients = Ingredient::query();
+            $filteredIngredients = Ingredient::getNotDeletedIngredients();
 
         }
         return $this->paginateIngredient($this->orderIngredientsByNameASC($filteredIngredients));
