@@ -27,6 +27,12 @@ class Cookie extends Model
         return $this->getAllIngredients()->where('ingredients.is_deleted',false);
     }
 
+    public static function getNotDeletedCookies()
+    {
+        return Cookie::where('is_deleted',false);
+    }
+
+
     public function getIsVeggieAttribute()
     {
         $cookieIngredients = $this->getAllIngredients()->get();
