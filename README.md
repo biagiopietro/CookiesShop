@@ -309,8 +309,9 @@ Let's start:
 You can run ```Cookies Shop + MySQL``` using ```Kubernetes```; this means that you have at least ```minikube``` installed.
 <br/>
 Let's start:
-- Follow [this guide](https://dzone.com/articles/running-local-docker-images-in-kubernetes-1) to build the Cookies Shop Docker image inside the ```minikube``` environment. 
-Otherwise you can publish the Docker image in your Docker Registry and in this case you need to edit the ```image``` attribute inside the ```kubernetes/cookies-shop.yaml```.
+- By default the ```biagiopietro/cookies_shop``` Docker image is used inside the ```kubernetes/cookies-shop.yaml``` but if you want you can:
+    - Follow [this guide](https://dzone.com/articles/running-local-docker-images-in-kubernetes-1) to build the Cookies Shop Docker image inside the ```minikube``` environment; 
+    - Otherwise you can publish the Docker image in your Docker Registry and use it inside the ```kubernetes/cookies-shop.yaml``` file.
 - Run ```cd CookiesShop/kubernetes``` to move where the ```k8s manifests``` are located;
 - Edit environment variables inside the ```env-config-map.yaml```.
 - Edit secrets inside ```secrets.yaml```;
@@ -323,11 +324,9 @@ cookies-shop-ingress   cookies.shop.it   192.168.39.110   80      38m
 ```
 
 - Add in your ```/etc/hosts``` this line: ```<ip> cookies.shop.it ```. In this case ```192.168.39.110 cookies.shop.it```.
-- Run ```minikube dashboard``` to check everything is running.
+- Run ```minikube dashboard``` to check if everything is running.
 - Open a browser and type ``http://cookies.shop.it``.
 
-**Note**
-By default the ```biagiopietro/cookies_shop``` Docker image will be used.
 
 ## License
 This application is open-sourced software licensed under the [Apache License 2.0](https://opensource.org/licenses/Apache-2.0).
