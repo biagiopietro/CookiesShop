@@ -17,12 +17,12 @@ class CookieController extends Controller
         if ($request->wantsJson()) {
             return $this->search($request);
         }
-        return view('cookies', ['cookies' => $this->paginateCookies($this->orderCookiesByNameASC(Cookie::query()))]);
+        return view('cookies', ['cookies' => $this->paginateCookies($this->orderCookiesByNameASC(Cookie::getNotDeletedCookies()))]);
     }
 
-    public function ingredients(Request $request, $id)
+    public function ingredients($id)
     {
-        $cookieIngredients = Cookie::find($id)->getNotDeletedIngredients()->get();
+        $cookieIngredients = $this->orderIngredientsByNameASC(Cookie::find($id)->getNotDeletedIngredients())->get();
         return response()->json($cookieIngredients);
     }
 
@@ -32,7 +32,7 @@ class CookieController extends Controller
             $search = $request->search;
             $filteredCookies = Cookie::where('name', 'LIKE', '%' . $search . '%');
         } else {
-            $filteredCookies = Cookie::query();
+            $filteredCookies = Cookie::getNotDeletedCookies();
 
         }
         return $this->paginateCookies($this->orderCookiesByNameASC($filteredCookies));
@@ -46,6 +46,11 @@ class CookieController extends Controller
     private function orderCookiesByNameASC($cookies)
     {
         return $cookies->orderBy('name','ASC');
+    }
+
+    private function orderIngredientsByNameASC($ingredients)
+    {
+        return $ingredients->orderBy('name','ASC');
     }
 
 }
