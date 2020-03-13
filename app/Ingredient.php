@@ -19,6 +19,12 @@ class Ingredient extends Model
         return $this->belongsToMany('App\Cookie','cookie_recipes');
     }
 
+    public static function getNotDeletedIngredients()
+    {
+        return Ingredient::where('is_deleted',false);
+    }
+
+
     public function getNotDeletedCookies()
     {
         return  $this->getAllCookies()->where('is_deleted',false);
